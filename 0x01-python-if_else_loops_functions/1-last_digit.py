@@ -10,6 +10,7 @@ number = random.randint(-10000, 10000)
 def get_last_digit(parent_number):
     if parent_number < 0:
         parent_number *= -1
+        return -1 * (parent_number % 10)
     last_digit = parent_number % 10
     return last_digit
 
