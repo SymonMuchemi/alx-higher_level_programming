@@ -11,6 +11,6 @@ def print_last_digit(number):
     """
     if number < 0:
         number *= -1
-        print("{}".format(number % 10))
+        print(number % 10)
     else:
-        print("{}".format(number % 10))
+        print(number % 10)
