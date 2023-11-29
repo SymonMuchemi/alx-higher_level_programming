@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 
-# uppercase - checks if a character is in uppercase
-# @c: the character to be checked
-# return: true or false
+# uppercase - prints the uppercase version of a string
+# @str: the string to be converted
 
-def uppercase(c):
-    if (ord(c) >= 65) and (ord(c) <= 90):
-        return True
-    else:
-        return False
+def uppercase(str):
+    upper_case_string = ""
+    for char in str:
+       if 'a' <= char <= 'z':
+            upper_case_string += chr(ord(char) - 32)
+       else:
+           upper_case_string += char
+    print(upper_case_string)
+
+# test case
+uppercase("SimpLE StatemENTs")
