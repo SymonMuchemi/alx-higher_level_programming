@@ -10,7 +10,7 @@ def uppercase(str):
             upper_case_string += chr(ord(char) - 32)
        else:
            upper_case_string += char
-    print(upper_case_string)
+    print("{}".format(upper_case_string))
 
 # test case
 uppercase("SimpLE StatemENTs")
