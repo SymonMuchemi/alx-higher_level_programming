@@ -1,9 +1,3 @@
 #!/bin/bash
 
-# Check if the $PYFILE variable is set
-if [ -z "$PYFILE" ]; then
-    exit 1
-fi
-
-# Run Python script using the value stored in $PYFILE
 python3 "$PYFILE"
