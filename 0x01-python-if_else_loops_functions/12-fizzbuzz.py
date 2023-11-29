@@ -9,7 +9,7 @@ def fizzbuzz():
     - "FizzBuzz" for numbers divisible by both 3 and 5.
     If a number is not divisible by either 3 or 5, it prints the number itself.
 
-    The function does not return any value; it only prints the FizzBuzz sequence.
+    The function does not return any value.
     """
     for i in range(1, 101):
         if (i % 3 == 0) and (i % 5 != 0):
