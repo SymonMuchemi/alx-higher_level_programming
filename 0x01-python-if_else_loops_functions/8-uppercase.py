@@ -12,5 +12,3 @@ def uppercase(str):
            upper_case_string += char
     print("{}".format(upper_case_string))
 
-# test case
-uppercase("SimpLE StatemENTs")
