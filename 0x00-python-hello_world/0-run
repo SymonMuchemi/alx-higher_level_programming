@@ -2,7 +2,6 @@
 
 # Check if the $PYFILE variable is set
 if [ -z "$PYFILE" ]; then
-    echo "Error: PYFILE environment variable is not set."
     exit 1
 fi
 
