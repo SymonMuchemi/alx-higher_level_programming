@@ -22,7 +22,7 @@ if __name__ == "__main__":
                 print("{:d} {} {:d} = {:d}".format(a, op, b, sub(a, b)))
             case "*":
                 print("{:d} {} {:d} = {:d}".format(a, op, b, mul(a, b)))
-            case "*":
+            case "/":
                 print("{:d} {} {:d} = {:d}".format(a, op, b, div(a, b)))
             case _:
                 print("Unknown operator. Available operators: +, -, * and /")
