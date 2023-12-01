@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # This program prints the arguments passed to it
 if __name__ == "__main__":
     import sys
