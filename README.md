@@ -1,3 +1,3 @@
 # alx-higher_level_programming
 
-This repository contains projects and code done as part of my ALx Software Engineering curriculum.
+This repository contains solution to the various ALX higher programming curriculum course work. Most of the code in this curriculum involve python, C and bash scripting.
