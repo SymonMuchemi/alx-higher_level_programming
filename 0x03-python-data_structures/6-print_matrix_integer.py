@@ -3,7 +3,7 @@ def print_matrix_integer(matrix=[[]]):
     """prints a matrix of integers
 
     Args:
-        matrix (list, optional): list of lists. 
+        matrix (list, optional): list of lists.
         Defaults to [[]].
     """
     if matrix == [[]]:
@@ -11,5 +11,6 @@ def print_matrix_integer(matrix=[[]]):
         return
     for row in matrix:
         for column in row:
-            print("{:d} ".format(column),  end=' ' if column != row[-1] else '')
+            print("{:d} ".format(column),
+                  end=' ' if column != row[-1] else '')
         print("{}".format('$'))
