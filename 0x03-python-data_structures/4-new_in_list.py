@@ -14,6 +14,8 @@ def new_in_list(my_list, idx, element):
     if my_list:
         # slicing all the elements in my_list to new_list
         new_list = my_list[:] 
-        if (idx <= len(new_list)) or (idx >= 0):
+        if (idx < len(new_list)) and (idx >= 0):
             new_list[idx] = element
             return new_list
+        else:
+            return my_list
