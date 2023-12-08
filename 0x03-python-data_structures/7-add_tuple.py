@@ -1,21 +1,29 @@
 #!/usr/bin/python3
-
-def check_tuple_size(my_tuple):
-    if (len(my_tuple) == 0):
-        new_tuple = tuple((0, 0))
-        return new_tuple
-    elif (len(my_tuple) == 1):
-        new_tuple == tuple((my_tuple[0], 0))
-        return new_tuple
-    else:
-        return my_tuple
-
-
 def add_tuple(tuple_a=(), tuple_b=()):
-    tuple_a = check_tuple_size(tuple_a)
-    tuple_b = check_tuple_size(tuple_b)
-    
-    x = tuple_a[0] + tuple_b[0]
-    y = tuple_a[1] + tuple_b[1]
-    
-    return tuple((x, y))
+    """adds the elements of two tuples together
+
+    Args:
+        tuple_a (tuple, optional): the first tuple. Defaults to ().
+        tuple_b (tuple, optional): the second tuple. Defaults to ().
+
+    Returns:
+        tuple: the sum of the elements of the two tuples
+    """
+    a = (0, 0)
+    b = (0, 0)
+
+    if len(tuple_a) == 0:
+        a = (0, 0)
+    elif len(tuple_a) == 1:
+        a = (tuple_a[0], 0)
+    elif len(tuple_a) >= 2:
+        a = (tuple_a[0], tuple_a[1])
+
+    if len(tuple_b) == 0:
+        b = (0, 0)
+    elif len(tuple_b) == 1:
+        b = (tuple_b[0], 0)
+    elif len(tuple_b) >= 2:
+        b = (tuple_b[0], tuple_b[1])
+
+    return (a[0] + b[0], a[1] + b[1])
