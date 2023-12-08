@@ -1,5 +1,5 @@
 test*
 __pycache__*
-*_[0-9].py
+[a-z]*_[0-9].py
 [0-9]-import*
 hidden_4.py
