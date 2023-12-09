@@ -4,7 +4,7 @@ def square_matrix_simple(matrix=[]):
     """squares all elements in amtrix
 
     Args:
-        matrix (list, optional): two dimensional array. 
+        matrix (list, optional): two dimensional array.
                                     Defaults to [].
     Returns:
         list: matrix containing squares
