@@ -13,7 +13,7 @@ def uniq_add(my_list=[]):
     else:
         uniq_nums = set({})
         for i in my_list:
-            uniq_nums.add(i)    
+            uniq_nums.add(i)
         # adding the unique numbers
         sum = 0
         for n in uniq_nums:
