@@ -6,6 +6,8 @@ def search_replace(my_list, search, replace):
         my_list (int): the array of integers
         search (int): the item to be replaced
         replace (int): the item to replace search with
+    Return:
+        list: the new list or the original list
     """
     if len(my_list) == 0:
         return my_list
