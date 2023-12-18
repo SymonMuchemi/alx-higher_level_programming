@@ -9,8 +9,8 @@ def safe_print_integer(value):
         bool: true if value is int
     """
     try:
-        num = int(value)
-        print("{:d}".format(num))
-        return True
+        print("{:d}".format(value))
     except ValueError:
         return False
+    else:
+        return True
