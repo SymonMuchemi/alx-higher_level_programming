@@ -14,7 +14,7 @@ def verify_list_items(lst):
     for item in lst:
         try:
             item = int(item)
-        except (ValueError):
+        except (ValueError, TypeError):
             item = None
         finally:
             final_list.append(item)
