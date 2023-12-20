@@ -1,4 +1,4 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 def verify_list_items(lst):
     """converts list elements into integers
 
@@ -14,7 +14,7 @@ def verify_list_items(lst):
     for item in lst:
         try:
             item = int(item)
-        except(ValueError):
+        except (ValueError):
             item = None
         finally:
             final_list.append(item)
