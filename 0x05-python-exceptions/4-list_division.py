@@ -33,12 +33,11 @@ def list_division(my_list_1, my_list_2, list_length):
     lst1 = convert_to_integers(my_list_1)
     lst2 = convert_to_integers(my_list_2)
     final_list = []
-    count = 0
     i = 0
     # max_len = max(len(my_list_1), len(my_list_2))
-    while count < list_length and i < len(lst1) and i < len(lst2):
+    for i in range(0, list_length):
         try:
-            result = lst1[i] / lst2[i]
+            result = (lst1[i] / lst2[i])
         except (ZeroDivisionError):
             result = 0
             print("division by 0")
@@ -50,6 +49,4 @@ def list_division(my_list_1, my_list_2, list_length):
             print("out of range")
         finally:
             final_list.append(result)
-            count += 1
-            i += 1
     return final_list
