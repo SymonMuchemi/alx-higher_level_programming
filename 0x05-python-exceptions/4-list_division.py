@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def verify_list_items(lst):
+def convert_to_integers(lst):
     """converts list elements into integers
 
     Args:
@@ -8,8 +8,6 @@ def verify_list_items(lst):
     Returns:
         list: the final list of integer and or None elements
     """
-    if len(lst) == 0:
-        return None
     final_list = []
     for item in lst:
         try:
@@ -32,16 +30,15 @@ def list_division(my_list_1, my_list_2, list_length):
     Returns:
         list: result of element division
     """
-    lst1 = verify_list_items(my_list_1)
-    lst2 = verify_list_items(my_list_2)
+    lst1 = convert_to_integers(my_list_1)
+    lst2 = convert_to_integers(my_list_2)
     final_list = []
-    count, i = 0, 0
-    max_len = max(len(my_list_1), len(my_list_2))
-    while (count <= max_len):
-        if count == list_length:
-            break
+    count = 0
+    i = 0
+    # max_len = max(len(my_list_1), len(my_list_2))
+    while count < list_length and i < len(lst1) and i < len(lst2):
         try:
-            result = float(lst1[i]) / lst2[i]
+            result = lst1[i] / lst2[i]
         except (ZeroDivisionError):
             result = 0
             print("division by 0")
