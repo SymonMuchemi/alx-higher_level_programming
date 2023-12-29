@@ -1,14 +1,20 @@
 #!/usr/bin/python3
 
-"""square
+"""module to create a square
 
 This module creates a simple square.
 
 Attributes:
-    size: this is the length of each side of the square
+    size: length of each side of the square
 """
 
 
 class Square:
+    """Represents a square shape
+
+    Attributes:
+        __size (int): lenf each side of the square.
+    """
+
     def __init__(self, size):
-      self.__size = size
+        self.__size = size
