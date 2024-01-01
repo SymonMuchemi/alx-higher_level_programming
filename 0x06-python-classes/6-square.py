@@ -6,6 +6,7 @@
     Attributes:
     size: length of each side of the square
 """
+error_msg = "position must be provided as a tuple of 2 integers"
 
 
 class Square:
@@ -73,7 +74,10 @@ class Square:
                 self.__size = size
         else:
             raise TypeError("size must be an integer")
-        self.__position = position
+        if not isinstance(position, tuple):
+            raise ValueError("{}".format(error_msg))
+        else:
+            self.__position = position
 
     @property
     def position(self):
@@ -95,9 +99,9 @@ class Square:
             TypeError: if coordinates are not positive
             TypeError: if coordinates are not integers
         """
-        error_msg = "position must be provided as a tuple of 2 integers"
         if not isinstance(value, tuple):
             raise TypeError("{}".format(error_msg))
+
         x, y = value
 
         if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
