@@ -9,6 +9,11 @@
 
 
 class Square:
+    """Represents a square shape
+
+    Attributes:
+        __size (int): length each side of the square.
+    """
     def __init__(self, size=0):
         if isinstance(size, int):
             if size < 0:
