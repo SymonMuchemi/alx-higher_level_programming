@@ -6,7 +6,6 @@
     Attributes:
     size: length of each side of the square
 """
-import sys
 
 
 class Square:
@@ -70,6 +69,6 @@ class Square:
         length = self.__size
         if length > 0:
             for i in range(length):
-                print("{}".format("#" * self.__size), file=sys.stdout)
+                print("{}".format("#" * self.__size))
         else:
             print()
