@@ -67,20 +67,23 @@ class Square:
             ValueError: if size is less than or equal to 0
             TypeError: if the size is not an integer
         """
-        x, y = position
-        if isinstance(size, int):
-            if size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = size
-        else:
-            raise TypeError("size must be an integer")
+        if not isinstance(size, int):
+            raise ValueError("size must be an integer")
+        
+        if size < 0:
+            raise ValueError("size must be >= 0")
+
+        self.__size = size
+
         if not isinstance(position, tuple):
+            raise TypeError("{}".format(error_msg))
+        
+        x, y = position
+
+        if not (isinstance(x, int) and isinstance(y, int)) or x < 0 or y < 0:
             raise ValueError("{}".format(error_msg))
-        if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
-            raise ValueError("{}".format(error_msg))
-        else:
-            self.__position = position
+
+        self.__position = position
 
     @property
     def position(self):
@@ -126,6 +129,6 @@ class Square:
         length, spaces = self.__size, self.__position[0]
         if length > 0:
             for i in range(length):
-                print("{}{}".format(" " * spaces, "#" * self.__size))
+                print("{}{}".format(" " * spaces, "#" * length))
         else:
             print()
