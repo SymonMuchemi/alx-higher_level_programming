@@ -55,6 +55,56 @@ class Square:
         else:
             raise TypeError("size must be an integer")
 
+    def __init__(self, size=0, position=(0, 0)):
+        """initializes the square with size and position attributes
+
+        Args:
+            size (int, optional): the length of the square. Defaults to 0.
+            position (tuple, optional): the coordinates. Defaults to (0, 0).
+
+        Raises:
+            ValueError: if size is less than or equal to 0
+            TypeError: if the size is not an integer
+        """
+        if isinstance(size, int):
+            if size < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = size
+        else:
+            raise TypeError("size must be an integer")
+        self.__position = position
+
+    @property
+    def position(self):
+        """getter for the position attribute
+
+        Returns:
+            tuple: the position of the square
+        """
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        """sets a new value for the square's position
+
+        Args:
+            value (tuple): the new coordinates
+
+        Raises:
+            TypeError: if coordinates are not positive
+            TypeError: if coordinates are not integers
+        """
+        error_msg = "position must be provided as a tuple of 2 integers"
+        if not isinstance(value, tuple):
+            raise TypeError("{}".format(error_msg))
+        x, y = value
+
+        if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
+            raise ValueError("{}".format(error_msg))
+
+        self.__position = value
+
     def area(self):
         """public instance method that returns square area
 
@@ -66,9 +116,9 @@ class Square:
     def my_print(self):
         """prints to stdout the square with the character '#'
         """
-        length = self.__size
+        length, spaces = self.__size, self.__position[0]
         if length > 0:
             for i in range(length):
-                print("{}".format("#" * self.__size))
+                print("{}{}".format(" " * spaces, "#" * self.__size))
         else:
             print()
