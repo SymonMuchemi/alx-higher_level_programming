@@ -13,7 +13,7 @@ class Square:
 
     Attributes:
         __size (int): length each side of the square.
-    
+
     Raises:
         ValueError: if the size is initialized to 0 or less than 0
         TypeError: if the size is not an integer
