@@ -6,7 +6,7 @@
     Attributes:
     size: length of each side of the square
 """
-error_msg = "position must be provided as a tuple of 2 integers"
+error_msg = "position must be a tuple of 2 positive integers"
 
 
 class Square:
