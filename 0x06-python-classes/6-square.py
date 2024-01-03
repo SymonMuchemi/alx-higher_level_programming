@@ -131,7 +131,6 @@ class Square:
         """
         length, spaces = self.__size, self.__position[0]
         if length > 0:
-            print()
             for i in range(length):
                 print("{}{}".format(" " * spaces, "#" * length))
         else:
