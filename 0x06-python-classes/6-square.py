@@ -69,7 +69,7 @@ class Square:
         """
         if not isinstance(size, int):
             raise ValueError("size must be an integer")
-        
+
         if size < 0:
             raise ValueError("size must be >= 0")
 
@@ -77,7 +77,7 @@ class Square:
 
         if not isinstance(position, tuple):
             raise TypeError("{}".format(error_msg))
-        
+
         x, y = position
 
         if not (isinstance(x, int) and isinstance(y, int)) or x < 0 or y < 0:
