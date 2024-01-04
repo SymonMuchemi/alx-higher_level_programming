@@ -51,7 +51,6 @@ class Square:
 
         self.__position = position
 
-
     @property
     def size(self):
         """getter method
@@ -137,11 +136,13 @@ class Square:
         """string representation of Square instance
         """
         square_output = ""
+        position = self.__position
+        size = self.__size
         if self.__size == 0:
             square_output += "\n"
         else:
-            for _ in range(self.__position[1]):
+            for _ in range(position[1]):
                 square_output += "\n"
             for _ in range(self.__size):
-                square_output += " " * self.__position[0] + "#" * self.__size + "\n"
+                square_output += " " * position[0] + "#" * size + "\n"
         return square_output
