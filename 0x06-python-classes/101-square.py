@@ -145,4 +145,4 @@ class Square:
             #     square_output += "\n"
             for _ in range(self.__size):
                 square_output += " " * position[0] + "#" * size + "\n"
-        return square_output
+        return square_output[:-1]
