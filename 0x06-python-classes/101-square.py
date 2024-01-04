@@ -141,8 +141,8 @@ class Square:
         if self.__size == 0:
             square_output += "\n"
         else:
-            # for _ in range(position[1]):
-            #     square_output += "\n"
+            for _ in range(position[1]):
+                square_output += "\n"
             for _ in range(self.__size):
                 square_output += " " * position[0] + "#" * size + "\n"
         return square_output[:-1]
