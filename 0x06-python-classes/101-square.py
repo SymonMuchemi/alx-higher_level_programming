@@ -19,43 +19,6 @@ class Square:
         ValueError: if the size is initialized to 0 or less than 0
         TypeError: if the size is not an integer
     """
-    def __init__(self, size=0):
-        if isinstance(size, int):
-            if size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = size
-        else:
-            raise TypeError("size must be an integer")
-
-    @property
-    def size(self):
-        """getter method
-
-        Returns:
-            int: the length of the square
-        """
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        """sets the value of square length
-
-        Args:
-            value (int): the new length to be set
-
-        Raises:
-            ValueError: if the value is less than or equal to 0
-            TypeError: if the value is not an integer
-        """
-        if isinstance(value, int):
-            if value < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = value
-        else:
-            raise TypeError("size must be an integer")
-
     def __init__(self, size=0, position=(0, 0)):
         """initializes the square with size and position attributes
 
@@ -87,6 +50,35 @@ class Square:
             raise ValueError("{}".format(error_msg))
 
         self.__position = position
+
+
+    @property
+    def size(self):
+        """getter method
+
+        Returns:
+            int: the length of the square
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """sets the value of square length
+
+        Args:
+            value (int): the new length to be set
+
+        Raises:
+            ValueError: if the value is less than or equal to 0
+            TypeError: if the value is not an integer
+        """
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
+        else:
+            raise TypeError("size must be an integer")
 
     @property
     def position(self):
@@ -141,18 +133,15 @@ class Square:
                     print('#', end='')
                 print()
 
-    @classmethod
-    def my_print(cls):
-        """prints to stdout the square with the character '#'
+    def __str__(self):
+        """string representation of Square instance
         """
-        if cls.__size == 0:
-            print()
+        square_output = ""
+        if self.__size == 0:
+            square_output += "\n"
         else:
-            for y in range(cls.__position[1]):
-                print()
-            for i in range(cls.__size):
-                for x in range(cls.__position[0]):
-                    print(' ', end='')
-                for j in range(cls.__size):
-                    print('#', end='')
-                print()
+            for _ in range(self.__position[1]):
+                square_output += "\n"
+            for _ in range(self.__size):
+                square_output += " " * self.__position[0] + "#" * self.__size + "\n"
+        return square_output
