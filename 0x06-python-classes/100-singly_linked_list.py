@@ -40,6 +40,9 @@ class Node:
 
         Raises:
             TypeError: If the value is not an integer
+
+        TODO:
+            check if TypeError is raised
         """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
