@@ -171,13 +171,6 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """create a rectangle with height and width being equal
-
-        Args:
-            size (int, optional): the length. Defaults to 0.
-
-        Returns:
-            Rectangle: a new Rectangle instance
+        """Returns new Rectangle instance with width == height == size
         """
-        width = height = size
-        return cls(width, height)
+        return cls(size, size)
