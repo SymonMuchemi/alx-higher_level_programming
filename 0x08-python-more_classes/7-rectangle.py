@@ -120,12 +120,13 @@ class Rectangle:
         Returns:
             string_rep (str): string representation using '#'
         """
-        string_rep = ""
-        if (self.__width == 0) or (self.__height == 0):
-            return string_rep
-        for i in range(self.__height):
-            string_rep += Rectangle.print_symbol * self.__width + "\n"
-        return string_rep[:-1]
+        s = ''
+        if self.__width > 0 and self.__height > 0:
+            for _ in range(self.__height):
+                for _ in range(self.__width):
+                    s += str(self.print_symbol)
+                s += '\n'
+        return s[: -1]
 
     def __repr__(self):
         """provides a formal and unambiguous representaion
