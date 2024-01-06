@@ -10,5 +10,4 @@ def copy_list(l):
     Returns:
         list: the cloned array
     """
-    new_list = l[:]
-    return new_list
+    return l.copy()
