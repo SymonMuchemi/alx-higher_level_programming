@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+"""Function to copy a list
+    """
 
 def copy_list(l):
     """clones a list
