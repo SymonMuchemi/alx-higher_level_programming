@@ -2,9 +2,13 @@
 
 
 def copy_list(l):
-    """copies the elements of a list to another
+    """clones a list
 
     Args:
-        l (list): the array of elements
+        l (list): array of elements
+
+    Returns:
+        list: the cloned array
     """
-    return l[:]
+    new_list = l[:]
+    return new_list
