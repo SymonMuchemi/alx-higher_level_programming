@@ -2,6 +2,7 @@
 """simple program to add two integers
 """
 
+
 def add_integer(a, b=98):
     """sums up two integer
 
