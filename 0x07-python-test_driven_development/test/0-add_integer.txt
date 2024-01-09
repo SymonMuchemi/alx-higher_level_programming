@@ -1,0 +1,19 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer('o', 1)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer('o', 'f')
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(float('inf'), 1)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(22, 90)
+112
+>>> add_integer(1)
+99
+>>> add_integer(-90)
+8
+>>> add_integer(-987, 8)
+-979

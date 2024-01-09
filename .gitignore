@@ -1,4 +1,4 @@
-test*
+test.py
 __pycache__*
 [a-z]*_[0-9].py
 [0-9]-import*
