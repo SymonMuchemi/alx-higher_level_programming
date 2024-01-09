@@ -3,4 +3,6 @@
 """
 
 def lookup(obj):
-    return (dir(obj))
+    if obj is not None:
+        return (dir(obj))
+    return None
