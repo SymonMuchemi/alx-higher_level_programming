@@ -1,0 +1,65 @@
+>>> None_name = None
+>>> list_name = ["John", "Doe"]
+>>> number_name = 909
+>>> number_name = .002
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name(list_name)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 18, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+
+>>> say_my_name(list_name, None_name)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 18, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+
+>>> say_my_name("Simon", None_name)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 20, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+
+>>> say_my_name(number_name, "John")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 18, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+
+>>> say_my_name("John", list_name)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 20, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+
+>>> say_my_name("John", None_name)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 20, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+
+>>> say_my_name("John", number_name)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 20, in say_my_name
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+>>> say_my_name("", "DOE")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/3-say_my_name.py", line 18, in say_my_name
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
