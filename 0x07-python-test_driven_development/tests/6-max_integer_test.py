@@ -17,3 +17,8 @@ class TestMaxinteger(unittest.TestCase):
         self.assertAlmostEqual(max_integer([-10, -2, -25]), -2)
         self.assertAlmostEqual(max_integer([10]), 10)
         self.assertAlmostEqual(max_integer([]), None)
+
+    def test_type_error(self):
+        """ type_errors """
+        self.assertRaises(TypeError, max_integer, ["h", 1])
+        self.assertRaises(TypeError, max_integer, [2, [2, 1]])
