@@ -28,4 +28,5 @@ def text_indentation(text):
             ignore_space = True
         else:
             ignore_space = False
+    new_str = new_str.rstrip()
     print(new_str)
