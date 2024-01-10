@@ -5,7 +5,7 @@
 
 def print_square(size):
     """prints a square with '#'
-
+    
     Args:
         size (int): length of the square
 
@@ -18,7 +18,7 @@ def print_square(size):
     if size < 0:
         raise ValueError("size must be >= 0")
     if size == 0:
-        print()
+        return
 
     square_str = ''
     for i in range(size):

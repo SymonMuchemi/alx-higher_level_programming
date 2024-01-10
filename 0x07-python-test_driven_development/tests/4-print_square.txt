@@ -23,51 +23,25 @@
 
 >>> print_square(negative_size)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 19, in print_square
-    raise ValueError("size must be >= 0")
 ValueError: size must be >= 0
 >>> print_square(negative_float_size)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 17, in print_square
-    raise TypeError("size must be an integer")
 TypeError: size must be an integer
 >>> print_square(str_size)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 17, in print_square
-    raise TypeError("size must be an integer")
 TypeError: size must be an integer
->>> print_square(str_size)
-str_size   str_size2  
 >>> print_square(str_size2)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 17, in print_square
-    raise TypeError("size must be an integer")
-TypeError: size must be an integer
->>> print_square(non)
-none_size  nonlocal   
+TypeError: size must be an integer 
 >>> print_square(none_size)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 17, in print_square
-    raise TypeError("size must be an integer")
 TypeError: size must be an integer
 >>> print_square(float_size)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 17, in print_square
-    raise TypeError("size must be an integer")
 TypeError: size must be an integer
 >>> print_square(float('inf'))
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/4-print_square.py", line 17, in print_square
-    raise TypeError("size must be an integer")
 TypeError: size must be an integer
 >>> print_square(int('inf'))
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
 ValueError: invalid literal for int() with base 10: 'inf'
