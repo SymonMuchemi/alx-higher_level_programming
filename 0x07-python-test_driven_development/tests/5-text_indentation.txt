@@ -1,0 +1,58 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> full_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+... beatiorem! Iam ruinas videres"
+>>> empty_text = ''
+>>> num_text = 90
+>>> none_text = None
+>>> bool_text = True
+>>> 
+>>> text_indentation(full_text)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Quonam modo?
+
+Utrum igitur tibi litteram videor an totas paginas commovere?
+
+Non autem hoc:
+
+igitur ne illud quidem.
+
+Fortasse id optimum, sed ubi illud:
+
+Plus semper voluptatis?
+
+Teneo, inquit, finem illi videri nihil dolere.
+
+Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+
+Si id dicis, vicimus.
+
+Inde sermone vario sex illa a Dipylo stadia confecimus.
+
+Sin aliud quid voles, postea.
+
+Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+
+Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+>>> text_indentation(empty_text)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(none_text)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(num_text)
+Traceback (most recent call last):
+TypeError: text must be a string
+>>> text_indentation(bool_text)
+Traceback (most recent call last):
+TypeError: text must be a string
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
