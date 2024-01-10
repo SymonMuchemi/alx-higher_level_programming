@@ -30,6 +30,8 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be an number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
+    if len(matrix) == 0:
+        raise TypeError("{}".format(typeerror_msg))
 
     new_matrix = []
     row_len = len(matrix[0])
