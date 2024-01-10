@@ -1,0 +1,112 @@
+Trying:
+    text_indentation = __import__('5-text_indentation').text_indentation
+Expecting nothing
+ok
+Trying:
+    full_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+    Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+    rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+    stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+    cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+    beatiorem! Iam ruinas videres"
+Expecting nothing
+ok
+Trying:
+    empty_text = ''
+Expecting nothing
+ok
+Trying:
+    num_text = 90
+Expecting nothing
+ok
+Trying:
+    none_text = None
+Expecting nothing
+ok
+Trying:
+    bool_text = True
+Expecting nothing
+ok
+Trying:
+    text_indentation(full_text)
+Expecting:
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    <BLANKLINE>
+    Si id dicis, vicimus.
+    <BLANKLINE>
+    Inde sermone vario sex illa a Dipylo stadia confecimus.
+    <BLANKLINE>
+    Sin aliud quid voles, postea.
+    <BLANKLINE>
+    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+    <BLANKLINE>
+    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+ok
+Trying:
+    text_indentation(empty_text)
+Expecting:
+    Traceback (most recent call last):
+    TypeError: text must be a string
+ok
+Trying:
+    text_indentation(none_text)
+Expecting:
+    Traceback (most recent call last):
+    TypeError: text must be a string
+ok
+Trying:
+    text_indentation(num_text)
+Expecting:
+    Traceback (most recent call last):
+    TypeError: text must be a string
+ok
+Trying:
+    text_indentation(bool_text)
+Expecting:
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+**********************************************************************
+File "tests/5-text_indentation.txt", line 54, in 5-text_indentation.txt
+Failed example:
+    text_indentation(bool_text)
+Expected:
+    Traceback (most recent call last):
+    TypeError: text must be a string
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+Got:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest 5-text_indentation.txt[10]>", line 1, in <module>
+        text_indentation(bool_text)
+      File "/home/symon/Desktop/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 16, in text_indentation
+        raise TypeError("text must be a string")
+    TypeError: text must be a string
+**********************************************************************
+1 items had failures:
+   1 of  11 in 5-text_indentation.txt
+11 tests in 1 items.
+10 passed and 1 failed.
+***Test Failed*** 1 failures.
