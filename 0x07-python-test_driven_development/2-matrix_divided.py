@@ -40,6 +40,8 @@ def matrix_divided(matrix, div):
         new_row = []
         if len(row) != row_len:
             raise TypeError("{}".format(row_len_error))
+        if len(row) == 0:
+            raise TypeError(typeerror_msg)
         if not isinstance(row, list):
             raise TypeError("{}".format(typeerror_msg))
         for item in row:

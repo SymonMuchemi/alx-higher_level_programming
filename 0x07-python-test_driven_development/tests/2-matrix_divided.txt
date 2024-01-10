@@ -45,7 +45,9 @@ ZeroDivisionError: division by zero
 >>> print(matrix_divided(10))
 Traceback (most recent call last):
 TypeError: matrix_divided() missing 1 required positional argument: 'div'
->>> print(matrix_divided([[]],10))
-[]
->>> print(matrix_divided([[], []],10))
-[]
+>>> matrix_divided([[],[]], 10)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[]], 10)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
