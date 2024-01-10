@@ -2,8 +2,9 @@
 """Simple function to lookup the names in a scope
 """
 
+
 def lookup(obj):
-    """return a list of available attributes and methods in an 
+    """return a list of available attributes and methods in an
     object
 
     Args:
