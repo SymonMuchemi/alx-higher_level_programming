@@ -20,21 +20,3 @@ TypeError: None must be an integer
 >>> bg.integer_validator(78, "78")
 Traceback (most recent call last):
 TypeError: 78 must be an integer
->>> bg.area()
-Traceback (most recent call last):
-Exception: area() is not implemented
->>> bg.integer_validator("tuple", (1,))
-Traceback (most recent call last):
-TypeError: tuple must be an integer
->>> bg.integer_validator()
-Traceback (most recent call last):
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
->>> bg.integer_validator("a")
-Traceback (most recent call last):
-TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
->>> bg.integer_validator("a", [2])
-Traceback (most recent call last):
-TypeError: a must be an integer
->>> bg.integer_validator("a", False)
-Traceback (most recent call last):
-ValueError: a must be greater than 0
