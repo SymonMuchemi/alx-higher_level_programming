@@ -19,3 +19,19 @@ TypeError: 'int' object is not iterable
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: list expected at most 1 argument, got 2
+>>> neg_lst = MyList()
+>>> neg_lst.append(-98)  
+>>> neg_lst.append(-78)
+>>> neg_lst.append(-7)
+>>> neg_lst.append(-278)
+>>> print(neg_lst)
+[-98, -78, -7, -278]
+>>> neg_lst.print_sorted()
+[-278, -98, -78, -7]
+>>> print(neg_lst)
+[-98, -78, -7, -278]
+>>> empty_lst = MyList()
+>>> print(empty_lst)
+[]
+>>> empty_lst.print_sorted()
+[]
