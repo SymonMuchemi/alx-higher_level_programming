@@ -1,0 +1,18 @@
+>>> is_kind_of_class = __import__('3-is_kind_of_class').is_kind_of_class
+>>> is_kind_of_class('a', str)
+True
+>>> is_kind_of_class('a', object)
+True
+>>> is_kind_of_class('b', int)
+False
+>>> is_kind_of_class(24, int)
+True
+>>> is_kind_of_class(24, object)
+True
+>>> is_kind_of_class([], object)
+True
+>>> is_kind_of_class([], list)
+True
+>>> is_kind_of_class((), tuple)
+True
+
