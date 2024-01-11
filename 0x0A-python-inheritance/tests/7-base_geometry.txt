@@ -1,0 +1,22 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("name", -20)
+Traceback (most recent call last):
+ValueError: name must be greater than 0
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
+>>> bg.integer_validator("", "")
+Traceback (most recent call last):
+TypeError:  must be an integer
+>>> bg.integer_validator("", 20)
+>>> bg.integer_validator("None", None)
+Traceback (most recent call last):
+TypeError: None must be an integer
+>>> bg.integer_validator(23, 25)
+>>> bg.integer_validator(78, "78")
+Traceback (most recent call last):
+TypeError: 78 must be an integer
