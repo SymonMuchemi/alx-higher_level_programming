@@ -3,6 +3,7 @@
 
 
 class MyInt(int):
+    """simple class that inherits from int"""
     def __new__(cls, value):
         """creates a new instance of MyInt given the integer value
 
@@ -13,7 +14,7 @@ class MyInt(int):
             MyInt: a new instance of MyInt
         """
         return super(MyInt, cls).__new__(cls, value)
-    
+
     def __eq__(self, other):
         """custom equality comparison of MyInt objects
 
@@ -28,7 +29,7 @@ class MyInt(int):
         if isinstance(other, int):
             return not super().__eq__(other)
         return NotImplemented
-    
+
     def __ne__(self, other):
         """custom inequality comparison of MyInt objects
 
