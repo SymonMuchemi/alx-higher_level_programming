@@ -21,7 +21,7 @@ class Square(Rectangle):
             int: size ** 2
         """
         return (pow(self.__size, 2))
-    
+
     def __repr__(self):
         """returns an ambiguos represantation"""
         return f"[Square] {self.__size}/{self.__size}"
