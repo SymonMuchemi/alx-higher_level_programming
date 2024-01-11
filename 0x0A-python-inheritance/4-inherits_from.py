@@ -3,8 +3,8 @@
 """
 
 
-def is_kind_of_class(obj, a_class):
-    """checks if an object is an instance of the specified class
+def inherits_from(obj, a_class):
+    """checks if an object is a inherits from a specified class
 
     Args:
         obj (any): suspected child
@@ -13,4 +13,4 @@ def is_kind_of_class(obj, a_class):
     Returns:
         True or False: if the object is an instance of the class
     """
-    return (isinstance(obj, a_class))
+    return (issubclass(type(obj), a_class) and type(obj) != a_class)
