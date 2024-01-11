@@ -20,3 +20,9 @@ TypeError: None must be an integer
 >>> bg.integer_validator(78, "78")
 Traceback (most recent call last):
 TypeError: 78 must be an integer
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+>>> bg.integer_validator("tuple", (1,))
+Traceback (most recent call last):
+TypeError: tuple must be an integer
