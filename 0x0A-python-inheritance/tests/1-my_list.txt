@@ -5,8 +5,12 @@
 >>> list1.append(210)
 >>> list1.append(0)
 >>> list1.append(22)
+>>> print(list1)
+[21, 210, 0, 22]
 >>> list1.print_sorted()
 [0, 21, 22, 210]
+>>> print(list1)
+[21, 210, 0, 22]
 >>> lst2 = MyList(10)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
