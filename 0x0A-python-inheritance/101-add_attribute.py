@@ -3,22 +3,19 @@
 
 
 def add_attribute(obj, name, value):
-    """adds a new attribute to an object
+    """
+    Adds a new attribute to the given object.
 
     Args:
-        obj (any): the object
-        name (str): the name of the new attribute
-        value (any): the value of the new attribute
+        obj (object): The object to which the attribute will be added.
+        name (str): The name of the attribute.
+        value (any): The value to set for the attribute.
 
     Raises:
-        TypeError: if name is not a string or value is None
-        TypeError: if unable to add a new attribute
+        TypeError: If the object already has a __doc__ attribute.
     """
-    if not isinstance(name, str):
+    res = getattr(obj, "__doc__", None)
+    if res is None:
+        setattr(obj, name, value)
+    else:
         raise TypeError("can't add new attribute")
-    if value is None:
-        raise TypeError("can't add new attribute")
-    if hasattr(obj, name):
-        raise TypeError("can't add new attribute")
-
-    obj.__dict__[name] = value
