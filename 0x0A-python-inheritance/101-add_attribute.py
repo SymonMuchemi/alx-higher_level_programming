@@ -14,10 +14,11 @@ def add_attribute(obj, name, value):
         TypeError: if name is not a string or value is None
         TypeError: if unable to add a new attribute
     """
-    if isinstance(name, str) and value != None:
-        try:
-            setattr(obj, name, value)
-        except AttributeError as e:
-            raise TypeError("can't add new attribute")
-    else:
+    if not isinstance(name, str):
         raise TypeError("can't add new attribute")
+    if value is None:
+        raise TypeError("can't add new attribute")
+    if hasattr(obj, name):
+        raise TypeError("can't add new attribute")
+
+    setattr(obj, name, value)
