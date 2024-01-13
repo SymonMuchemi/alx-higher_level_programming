@@ -13,5 +13,4 @@ except FileNotFoundError:
     if (len(sys.argv) > 1):
         for i in range(1, len(sys.argv)):
             obj_list.append(sys.argv[i])
-
     save_to_json_file(obj_list, file_name)
