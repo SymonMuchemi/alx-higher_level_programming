@@ -13,5 +13,5 @@ def to_json_string(my_obj):
         str: the serialize object
     """
     json_rep = json.dumps(my_obj)
-    
+
     return json_rep
