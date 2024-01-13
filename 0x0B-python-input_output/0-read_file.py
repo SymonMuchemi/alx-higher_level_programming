@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Simple file reading function"""
 
 def read_file(filename=""):
     """reads and prints out the contents of a file
