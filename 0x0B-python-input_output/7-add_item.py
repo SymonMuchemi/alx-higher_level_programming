@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-"""program that adds all commandline arguments and saves to a file"""
-import json
+"""program that adds all command line arguments and saves to a file"""
 import sys
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
 file_name = "add_item.json"
+obj_list = []
 
 if (len(sys.argv) > 1):
-    obj_list = []
-    for argument in sys.argv:
-        obj_list.append(argument)
+    for i in range(1, len(sys.argv)):
+        obj_list.append(sys.argv[i])
 
-with open("add_item.json", 'a', encoding='utf-8') as fp:
-    save_to_json_file()
+save_to_json_file(obj_list, file_name)
