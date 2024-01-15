@@ -12,7 +12,7 @@ def class_to_json(obj):
     Returns:
         dict: a dictionary representation
     """
-    if obj != None:
+    if obj is not None:
         return obj.__dict__
     else:
         return {}
