@@ -16,6 +16,7 @@ def factorial(n):
         result *= i
     return result
 
+
 def combination(n, k):
     """calculates the combination of n to r
     formula:
@@ -30,6 +31,7 @@ def combination(n, k):
     """
     return factorial(n) // (factorial(k) * factorial(n - k))
 
+
 def pascal_triangle(n):
     """represents the Pascal triangle
 
@@ -41,10 +43,10 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    
+
     master_lst = []
     i = 0
-    
+
     while i < n:
         lst = []
         j = i
