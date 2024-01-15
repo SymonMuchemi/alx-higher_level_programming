@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """program to return dictionary description  of data structures"""
-import json
 
 
 def class_to_json(obj):
@@ -14,6 +13,6 @@ def class_to_json(obj):
         dict: a dictionary representation
     """
     if obj != None:
-        return json.loads(json.dumps(obj.__dict__))
+        return obj.__dict__
     else:
         return {}
