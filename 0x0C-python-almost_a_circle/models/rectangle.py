@@ -130,4 +130,4 @@ class Rectangle(Base):
         Returns:
             str: the description
         """
-        return f"[Rectangle] ({self.id}) <{self.x}>/<{self.y}> - <{self.width}>/<{self.height}>"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"

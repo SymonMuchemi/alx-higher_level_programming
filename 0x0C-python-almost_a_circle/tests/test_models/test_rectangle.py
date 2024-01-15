@@ -110,3 +110,13 @@ class TestRect(unittest.TestCase):
         
         expected_output = '####\n####\n####\n####'
         self.assertEqual(mock_stdout.getvalue().strip(), expected_output)
+
+    def test_description(self):
+        """tests the __str__ method"""
+        myRect = Rect(4, 4, 1, 1, 254)
+        
+        with patch('sys.stdout', new_callable=StringIO) as mock_std:
+            print(myRect)
+        
+        expected_desc = '[Rectangle] (254) 1/1 - 4/4'
+        self.assertEqual(mock_std.getvalue().strip(), expected_desc)
