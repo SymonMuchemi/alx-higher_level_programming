@@ -124,11 +124,11 @@ class TestRect(unittest.TestCase):
     def test_update(self):
         """tests the update method
         """
-        obj = Rect(1, 1, 1, 1, 1)
-        obj.update(10, 4, 5, 1, 1)        
+        obj = Rect(10, 1, 1, 1, 1)
+        obj.update(y=1, width=2, x=3, id=89)        
         
-        self.assertEqual(obj.width, 4)
-        self.assertEqual(obj.height, 5)
-        self.assertEqual(obj.x, 1)
+        self.assertEqual(obj.width, 2)
+        self.assertEqual(obj.height, 1)
+        self.assertEqual(obj.x, 3)
         self.assertEqual(obj.y, 1)
-        self.assertEqual(obj.id, 10)
+        self.assertEqual(obj.id, 89)
