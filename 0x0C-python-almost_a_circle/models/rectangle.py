@@ -4,7 +4,13 @@ from models.base import Base
         
         
 class Rectangle(Base):
+    """Rectangle that inherits the Base class
+
+    Args:
+        Base (Base): the parent class
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """initialize the Rectangle class"""
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.position_integer_validator('x', x)
@@ -134,9 +140,7 @@ class Rectangle(Base):
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
-        """update all attributes if using *args or specific 
-        attributes if using **kwargs
-        """
+        """update attributes based on arguments or keyworded arguments"""
         if len(args) == 5:
             self.id = args[0]
             self.__width = args[1]
