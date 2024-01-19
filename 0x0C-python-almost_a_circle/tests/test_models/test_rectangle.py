@@ -125,10 +125,28 @@ class TestRect(unittest.TestCase):
         """tests the update method
         """
         obj = Rect(10, 1, 1, 1, 1)
+        
+        # Before
+        self.assertEqual(obj.width, 10)
+        self.assertEqual(obj.height, 1)
+        self.assertEqual(obj.x, 1)
+        self.assertEqual(obj.y, 1)
+        self.assertEqual(obj.id, 1)
+        
+        # Updating attributes
         obj.update(y=1, width=2, x=3, id=89)        
         
+        # after updates
         self.assertEqual(obj.width, 2)
         self.assertEqual(obj.height, 1)
         self.assertEqual(obj.x, 3)
         self.assertEqual(obj.y, 1)
         self.assertEqual(obj.id, 89)
+
+    def test_to_dict(self):
+        obj = Rect(1, 12, 1, 2, 89)
+        self_dict = {'_Rectangle__width': 1, '_Rectangle__height': 12, '_Rectangle__x': 1, '_Rectangle__y': 2, 'id': 89}
+
+        
+        self.assertEqual(obj.to_dictionary, self_dict)
+

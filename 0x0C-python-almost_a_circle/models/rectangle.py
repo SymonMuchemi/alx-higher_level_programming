@@ -156,3 +156,11 @@ class Rectangle(Base):
                     self.__y = val
                 if key == 'id':
                     self.id = val
+                    
+    def to_dictionary(self):
+        """returns the dictionary defination of the class
+
+        Returns:
+            dict: dictionary of attributes
+        """
+        return self.__dict__
