@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Rectangle class that inherits from base"""
 from models.base import Base
-        
-        
+
+
 class Rectangle(Base):
     """Rectangle that inherits the Base class
 
@@ -20,7 +20,7 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
         super().__init__(id)
-    
+
     def integer_validator(self, name, value):
         """validates value
 
@@ -36,7 +36,7 @@ class Rectangle(Base):
             raise TypeError("{} must be an integer".format(name))
         if value < 0:
             raise ValueError("{} must be >= 0".format(name))
-        
+
     def position_integer_validator(self, name, value):
         """validates the value of a position variable
 
@@ -52,12 +52,12 @@ class Rectangle(Base):
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be >= 0".format(name))
-        
+
     @property
     def width(self):
         """width's getter method"""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """sets a new value of width
@@ -82,12 +82,12 @@ class Rectangle(Base):
         """
         self.integer_validator("height", value)
         self.__height = value
-    
+
     @property
     def x(self):
         """x's getter method"""
         return self.__x
-    
+
     @x.setter
     def x(self, value):
         """sets a new value for the attribute x
@@ -97,12 +97,12 @@ class Rectangle(Base):
         """
         self.position_integer_validator('x', value)
         self.__x = value
-        
+
     @property
     def y(self):
         """y's getter method"""
         return self.__y
-    
+
     @y.setter
     def y(self, value):
         """sets a new value for the attribute y
@@ -120,7 +120,7 @@ class Rectangle(Base):
             int: height * width
         """
         return (self.__height * self.__width)
-    
+
     def display(self):
         """prints in the stdout the Rectangle instance with the
         character '#'
@@ -137,7 +137,12 @@ class Rectangle(Base):
         Returns:
             str: the description
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        id = self.id
+        x = self.x
+        y = self.y
+        width = self.width
+        height = self.height
+        return f"[Rectangle] ({id}) {x}/{y} - {width}/{height}"
 
     def update(self, *args, **kwargs):
         """update attributes based on arguments or keyworded arguments"""
@@ -147,7 +152,7 @@ class Rectangle(Base):
             self.__height = args[2]
             self.__x = args[3]
             self.__y = args[4]
-        
+
         if len(args) == 0:
             for key, val in kwargs.items():
                 if key == 'width':
@@ -160,7 +165,7 @@ class Rectangle(Base):
                     self.__y = val
                 if key == 'id':
                     self.id = val
-                    
+
     def to_dictionary(self):
         """returns the dictionary defination of the class
 
