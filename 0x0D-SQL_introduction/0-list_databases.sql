@@ -1,2 +1,4 @@
 --- script to list all databases
-SHOW DATABASES;
+SELECT schema_name
+FROM information_schema.SCHEMATA
+ORDER BY schema_name;
