@@ -2,7 +2,7 @@
 
 // finds the factorial of a number
 function fact (a) {
-  if (a === 0 || a === 1) return 1;
+  if (a === 0 || a === 1 || isNaN(a) === true) return 1;
 
   return (a * fact(a - 1));
 }
