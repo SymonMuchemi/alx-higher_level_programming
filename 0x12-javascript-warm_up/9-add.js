@@ -13,6 +13,3 @@ if (isNaN(num1) === false && isNaN(num2) === false) {
 
   console.log(add(a, b));
 }
-
-
-
