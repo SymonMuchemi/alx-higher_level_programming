@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 // function to add two numbers
-function add(a, b) {
+function add (a, b) {
   const x = a + b;
 
   console.log(x);
