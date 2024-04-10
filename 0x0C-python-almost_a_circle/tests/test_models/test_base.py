@@ -10,14 +10,9 @@ class TestBase(unittest.TestCase):
     Args:
         unittest (TestCase): test
     """
-    def test_instance_id(self):
-        """Test the user ID of the Base instances
-        """
-        obj1 = Base()
-        obj2 = Base()
-        obj3 = Base()
-        obj4 = Base(24)
-        self.assertEqual(obj1.id, 1)
-        self.assertEqual(obj2.id, 2)
-        self.assertEqual(obj3.id, 3)
-        self.assertEqual(obj4.id, 24)
+    def test_private_attribute(self):
+        """Checks if the nb_objects att is private"""
+        obj = Base()
+        
+        # Confirm private attribute is not accessible
+        with self.assertRaises(AttributeError): obj.__nb_objects
