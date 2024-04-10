@@ -8,13 +8,13 @@ module.exports = class Rectangle {
     }
   }
 
-  print() {
+  print () {
     if (this.width > 0 && this.height > 0) {
       for (let i = 0; i < this.height; i++) {
         for (let j = 0; j < this.width; j++) {
           process.stdout.write('X');
         }
-      console.log();
+        console.log();
       }
     }
   }
