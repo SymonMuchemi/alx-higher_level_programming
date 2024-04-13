@@ -13,8 +13,7 @@ if __name__ == "__main__":
         )
 
     cursor = connection.cursor()
-    query = "SELECT cities.name \
-            FROM cities \
+    query = "SELECT * FROM cities \
             INNER JOIN states \
             ON cities.state_id = states.id \
             WHERE states.name = %s \
@@ -25,5 +24,4 @@ if __name__ == "__main__":
 
     rows = cursor.fetchall()
 
-    for row in rows:
-        print(row)
+    print(", ".join([ct[2] for ct in rows if ct[4] == sys.argv[4]]))
