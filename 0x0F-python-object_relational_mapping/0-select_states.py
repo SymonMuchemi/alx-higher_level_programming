@@ -4,20 +4,21 @@ import sys
 import MySQLdb
 
 # connecting to the database
-connection = MySQLdb.connect(
+if __name__ == "__main__":
+    connection = MySQLdb.connect(
         host="localhost",
         user=sys.argv[1],
         password=sys.argv[2],
         database=sys.argv[3]
         )
 
-cursor = connection.cursor()
+    cursor = connection.cursor()
 
-cursor.execute("SELECT * FROM states ORDER BY id")
-rows = cursor.fetchall()
+    cursor.execute("SELECT * FROM states ORDER BY id")
+    rows = cursor.fetchall()
 
-for row in rows:
-    print(row)
+    for row in rows:
+        print(row)
 
-cursor.close()
-connection.close()
+    cursor.close()
+    connection.close()
