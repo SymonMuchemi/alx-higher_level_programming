@@ -12,7 +12,9 @@ if __name__ == "__main__":
             database=sys.argv[3]
             )
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id".format(sys.argv[4]))
+    cursor.execute("SELECT * FROM states \
+            WHERE BINARY name = '{}' \
+            ORDER BY id".format(sys.argv[4]))
     rows = cursor.fetchall()
 
     for row in rows:
