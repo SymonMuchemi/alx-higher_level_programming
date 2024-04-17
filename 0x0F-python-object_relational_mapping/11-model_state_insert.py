@@ -18,16 +18,10 @@ if __name__ == "__main__":
     session = Session()
     found = False
 
-    louisiana = State(name='Louisiana')
+    Lstate = State(name='Louisiana')
 
-    session.add(louisiana)
-
-    for state in session.query(State):
-        if state.name == 'Louisiana':
-            print("{}".format(state.id))
-            found = True
-
-    if found is False:
-        print("Not found")
+    session.add(Lstate)
+    session.commit()
+    print("{}".format(Lstate.id))
 
     session.close()
