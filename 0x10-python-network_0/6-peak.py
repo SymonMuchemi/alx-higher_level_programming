@@ -2,20 +2,19 @@
 # Finds the peak in a list
 
 def find_peak(list_of_integers):
-    """ finds a peak in the list and print it out """
+    """ finds a peak in the list and print it out
+    
+        Finds the largest element in the list
+    """
+    largest_element = None
+    
     if len(list_of_integers) == 0:
-        print("None")
-        return
-
-    peaks = []
-    peaks.append(list_of_integers[0])
-    for index in range(1, len(list_of_integers) - 1):
-        current = list_of_integers[index]
-        prev = list_of_integers[index - 1]
-        nxt = list_of_integers[index + 1]
-
-        if current > prev and current > nxt:
-            peaks.append(current)
-    peaks.append(list_of_integers[-1])
-
-    print(max(peaks))
+        return None
+    
+    largest_element = list_of_integers[0]
+    
+    for integer in list_of_integers:
+        if integer > largest_element:
+            largest_element = integer
+    
+    return largest_element
