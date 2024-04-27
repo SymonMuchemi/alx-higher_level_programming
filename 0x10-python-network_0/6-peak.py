@@ -1,10 +1,18 @@
 #!/usr/bin/python3
-# Finds the peak in a list
+""" function finds the peak value in a list on integers
+
+    The list is iterated from first element to the last and the 
+    largest value is found and returned
+    """
 
 def find_peak(list_of_integers):
-    """ finds a peak in the list and print it out
+    """finds the peak in a list
 
-        Finds the largest element in the list
+    Args:
+        list_of_integers (int): the array of integers
+
+    Returns:
+        int: the largest integer in the list
     """
     largest_element = None
 
