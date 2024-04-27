@@ -3,7 +3,7 @@
 
 def find_peak(list_of_integers):
     """ finds a peak in the list and print it out """
-    if not list_of_integers:
+    if len(list_of_integers) == 0:
         print("None")
         return
 
