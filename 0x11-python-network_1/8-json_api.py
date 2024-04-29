@@ -13,12 +13,11 @@ if __name__ == "__main__":
     else:
         letter = ""
 
-    value = {'q' : letter}
-    # send a request
-    response = requests.post(url, value)
-
+    value = {'q': letter}
     # convert response to json using
     try:
+        # send a request
+        response = requests.post(url, value)
         response = response.json()
         if response == {}:
             print("No result")
