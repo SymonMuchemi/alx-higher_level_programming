@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """tests for the Rectangle"""
 import unittest
+from unittest.mock import patch
+from io import StringIO
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -8,6 +10,7 @@ from models.base import Base
 class TestRectagle(unittest.TestCase):
     """ """
     rect = Rectangle(21, 12, 5, 4)
+    smallRect = Rectangle(2, 3, 2, 5)
 
     def test_rectangle_parent_class(self):
         self.assertIsInstance(TestRectagle.rect, Base)
@@ -148,3 +151,9 @@ class TestRectagle(unittest.TestCase):
     def test_area(self):
         area = TestRectagle.rect.height * TestRectagle.rect.width
         self.assertEqual(TestRectagle.rect.area(), area)
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_display(self, mock_stdout):
+        expected_str = "##\n##\n##"
+        TestRectagle.smallRect.display()
+        self.assertEqual(mock_stdout.getvalue().strip(), expected_str)

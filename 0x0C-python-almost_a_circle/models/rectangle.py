@@ -126,3 +126,7 @@ class Rectangle(Base):
             int: width multiplied by height
         """
         return self.__width * self.__height
+
+    def display(self):
+        for i in range(self.__height):
+            print("#" * self.__width)
