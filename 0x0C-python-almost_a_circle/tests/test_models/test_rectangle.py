@@ -176,10 +176,10 @@ class TestRectagle(unittest.TestCase):
     def test_update(self):
         TestRectagle.smallRect.update(10, 10, 10, 10, 10)
         self.assertEqual(TestRectagle.smallRect.id, 10)
-        self.assertEqual(TestRectagle.smallRect.width(), 10)
-        self.assertEqual(TestRectagle.smallRect.height(), 10)
-        self.assertEqual(TestRectagle.smallRect.x(), 10)
-        self.assertEqual(TestRectagle.smallRect.y(), 10)
+        self.assertEqual(TestRectagle.smallRect.width, 10)
+        self.assertEqual(TestRectagle.smallRect.height, 10)
+        self.assertEqual(TestRectagle.smallRect.x, 10)
+        self.assertEqual(TestRectagle.smallRect.y, 10)
 
     def test_integer_validator(self):
         with self.assertRaises(TypeError) as context:

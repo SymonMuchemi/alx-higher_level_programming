@@ -29,7 +29,7 @@ class Rectangle(Base):
             raise TypeError(f"{name} must be an integer")
         if value < 0:
             raise ValueError(f"{name} must be >= 0")
-    
+
     @property
     def width(self):
         """retrieve the width property
@@ -137,20 +137,24 @@ class Rectangle(Base):
         return f"[{name}] ({id}) {x}/{y} - {width}/{height}"
 
     def update(self, *args):
-        if args[0] and isinstance(args[0], int):
+        """assigns an argument to each attribute:
+            1st argument -> id attribute
+            2nd argument -> width attribute
+            3rd argument -> height attribute
+            4th argument -> x attribute
+            5th argument -> y attribute
+        """
+        if len(args) > 0 and args[0] is not None and isinstance(args[0], int):
             self.id = args[0]
-        if args[1]:
+        if len(args) > 1 and args[1] is not None:
             self.integer_validator("width", args[1])
             self.__width = args[1]
-        if args[2]:
+        if len(args) > 2 and args[2] is not None:
             self.integer_validator("height", args[2])
             self.__height = args[2]
-        if args[3]:
+        if len(args) > 3 and args[3] is not None:
             self.coordinate_validator("x", args[3])
             self.__x = args[3]
-        if args[4]:
+        if len(args) > 4 and args[4] is not None:
             self.coordinate_validator("y", args[4])
             self.__y = args[4]
-        
-        
-            
