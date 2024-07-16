@@ -41,9 +41,9 @@ class TestRectagle(unittest.TestCase):
         self.assertEqual(TestRectagle.rect.width, 32)
 
     def test_x_setter(self):
-        TestRectagle.rect.x = 0
+        TestRectagle.rect.x = 10
 
-        self.assertEqual(TestRectagle.rect.x, 0)
+        self.assertEqual(TestRectagle.rect.x, 10)
 
     def test_y_setter(self):
         TestRectagle.rect.y = 10
@@ -86,14 +86,24 @@ class TestRectagle(unittest.TestCase):
 
         self.assertEqual(str(context.exception), "y must be an integer")
 
-    def test_x_setter_does_not_raise_value_error(self):
+    def test_x_raises_value_error(self):
+        with self.assertRaises(ValueError) as cntxtNegative:
+            TestRectagle.rect.x = -6
+        
+        self.assertEqual(str(cntxtNegative.exception), "x must be >= 0")
+        
         try:
-            TestRectagle.rect.x = -10
+            TestRectagle.rect.x = 0
         except ValueError:
-            self.fail("x.setter raises a value error")
+            self.fail("x.setter raises ValueError on x = 0")
 
-    def test_y_setter_does_not_raise_value_error(self):
+    def test_y_raises_value_error(self):
+        with self.assertRaises(ValueError) as cntxtNegative:
+            TestRectagle.rect.y = -6
+        
+        self.assertEqual(str(cntxtNegative.exception), "y must be >= 0")
+        
         try:
-            TestRectagle.rect.y = -98
+            TestRectagle.rect.y = 0
         except ValueError:
-            self.fail("y.setter raises a value error")
+            self.fail("y.setter raises ValueError on y = 0")
