@@ -107,3 +107,40 @@ class TestRectagle(unittest.TestCase):
             TestRectagle.rect.y = 0
         except ValueError:
             self.fail("y.setter raises ValueError on y = 0")
+
+    def test_attributes_on_instantiation(self):
+        with self.assertRaises(TypeError) as context:
+            erroredWidthRect = Rectangle("7", 3, 2, 25)
+        self.assertEqual(str(context.exception), "width must be an integer")
+        
+        with self.assertRaises(ValueError) as context:
+            erroredWidthRect = Rectangle(0, 3, 2, 25)
+        self.assertEqual(str(context.exception), "width must be > 0")
+        
+        with self.assertRaises(TypeError) as context:
+            erroredWidthRect = Rectangle(2, "7", 2, 25)
+        self.assertEqual(str(context.exception), "height must be an integer")
+        
+        with self.assertRaises(ValueError) as context:
+            erroredWidthRect = Rectangle(2, -5, 2, 25)
+        self.assertEqual(str(context.exception), "height must be > 0")
+    
+        with self.assertRaises(ValueError) as context:
+            erroredWidthRect = Rectangle(7, 6, -5, 25)
+        self.assertEqual(str(context.exception), "x must be >= 0")
+        
+        with self.assertRaises(TypeError) as context:
+            erroredWidthRect = Rectangle(7, 3, "2", 25)
+        self.assertEqual(str(context.exception), "x must be an integer")
+        
+        with self.assertRaises(ValueError) as context:
+            erroredWidthRect = Rectangle(10, 3, 2, -25)
+        self.assertEqual(str(context.exception), "y must be >= 0")
+        
+        with self.assertRaises(TypeError) as context:
+            erroredWidthRect = Rectangle(2, 7, 2, "25")
+        self.assertEqual(str(context.exception), "y must be an integer")
+    
+        with self.assertRaises(ValueError) as context:
+            erroredWidthRect = Rectangle(7, 6, 2, -25)
+        self.assertEqual(str(context.exception), "y must be >= 0")
