@@ -10,6 +10,7 @@ from models.base import Base
 class TestRectagle(unittest.TestCase):
     """ """
     rect = Rectangle(21, 12, 5, 4)
+    rect_with_id = Rectangle(21, 12, 5, 4, 89)
     smallRect = Rectangle(2, 3, 2, 5)
 
     def test_rectangle_parent_class(self):
@@ -156,4 +157,11 @@ class TestRectagle(unittest.TestCase):
     def test_display(self, mock_stdout):
         expected_str = "##\n##\n##"
         TestRectagle.smallRect.display()
+        self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_str(self, mock_stdout):
+        # rect_with_id = Rectangle(21, 12, 5, 4, 89)
+        expected_str = f"[Rectangle] (89) 5/4 - 21/12"
+        print(TestRectagle.rect_with_id)
         self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
