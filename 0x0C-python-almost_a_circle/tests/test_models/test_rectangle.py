@@ -157,7 +157,14 @@ class TestRectagle(unittest.TestCase):
     def test_display(self, mock_stdout):
         expected_str = "##\n##\n##"
         TestRectagle.smallRect.display()
-        self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
+        self.assertNotEqual(mock_stdout.getvalue().strip(), expected_str)
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_imporved_display(self, mock_stdout):
+        # smallRect = Rectangle(2, 3, 2, 5)
+        expected_str = "\n" * 5 + "  ##\n  ##\n  ##\n"
+        TestRectagle.smallRect.display()
+        self.assertEqual(mock_stdout.getvalue(), expected_str)
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_str(self, mock_stdout):
@@ -165,3 +172,4 @@ class TestRectagle(unittest.TestCase):
         expected_str = f"[Rectangle] (89) 5/4 - 21/12"
         print(TestRectagle.rect_with_id)
         self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
+
