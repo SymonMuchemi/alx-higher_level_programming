@@ -6,6 +6,7 @@ from models.base import Base
 
 
 class TestRectagle(unittest.TestCase):
+    """ """
     rect = Rectangle(21, 12, 5, 4)
 
     def test_rectangle_parent_class(self):
@@ -48,3 +49,51 @@ class TestRectagle(unittest.TestCase):
         TestRectagle.rect.y = 10
 
         self.assertEqual(TestRectagle.rect.y, 10)
+
+    def test_width_setter_raises_Type_error(self):
+        with self.assertRaises(TypeError) as context:
+            TestRectagle.rect.width = "Mellon"
+
+        self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_width_setter_raises_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            TestRectagle.rect.width = -90
+
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+    def test_height_setter_raises_Type_error(self):
+        with self.assertRaises(TypeError) as context:
+            TestRectagle.rect.height = "Mellon"
+
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_setter_raises_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            TestRectagle.rect.height = -90
+
+        self.assertEqual(str(context.exception), "height must be > 0")
+
+    def test_x_setter_raises_Type_error(self):
+        with self.assertRaises(TypeError) as context:
+            TestRectagle.rect.x = "Mellon"
+
+        self.assertEqual(str(context.exception), "x must be an integer")
+
+    def test_x_setter_raises_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            TestRectagle.rect.x = -90
+
+        self.assertEqual(str(context.exception), "x must be > 0")
+
+    def test_y_setter_raises_Type_error(self):
+        with self.assertRaises(TypeError) as context:
+            TestRectagle.rect.y = "Mellon"
+
+        self.assertEqual(str(context.exception), "y must be an integer")
+
+    def test_x_setter_raises_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            TestRectagle.rect.y = -90
+
+        self.assertEqual(str(context.exception), "y must be > 0")
