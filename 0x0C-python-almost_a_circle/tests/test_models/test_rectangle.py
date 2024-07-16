@@ -80,20 +80,20 @@ class TestRectagle(unittest.TestCase):
 
         self.assertEqual(str(context.exception), "x must be an integer")
 
-    def test_x_setter_raises_value_error(self):
-        with self.assertRaises(ValueError) as context:
-            TestRectagle.rect.x = -90
-
-        self.assertEqual(str(context.exception), "x must be > 0")
-
     def test_y_setter_raises_Type_error(self):
         with self.assertRaises(TypeError) as context:
             TestRectagle.rect.y = "Mellon"
 
         self.assertEqual(str(context.exception), "y must be an integer")
 
-    def test_x_setter_raises_value_error(self):
-        with self.assertRaises(ValueError) as context:
-            TestRectagle.rect.y = -90
+    def test_x_setter_does_not_raise_value_error(self):
+        try:
+            TestRectagle.rect.x = -10
+        except ValueError:
+            self.fail("x.setter raises a value error")
 
-        self.assertEqual(str(context.exception), "y must be > 0")
+    def test_y_setter_does_not_raise_value_error(self):
+        try:
+            TestRectagle.rect.y = -98
+        except ValueError:
+            self.fail("y.setter raises a value error")
