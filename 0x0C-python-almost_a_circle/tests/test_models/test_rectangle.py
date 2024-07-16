@@ -144,3 +144,7 @@ class TestRectagle(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             erroredWidthRect = Rectangle(7, 6, 2, -25)
         self.assertEqual(str(context.exception), "y must be >= 0")
+
+    def test_area(self):
+        area = TestRectagle.rect.height * TestRectagle.rect.width
+        self.assertEqual(TestRectagle.rect.area(), area)
