@@ -136,7 +136,21 @@ class Rectangle(Base):
         y = self.__y
         return f"[{name}] ({id}) {x}/{y} - {width}/{height}"
 
-    def update(*args):
+    def update(self, *args):
         if args[0] and isinstance(args[0], int):
             self.id = args[0]
+        if args[1]:
+            self.integer_validator("width", args[1])
+            self.__width = args[1]
+        if args[2]:
+            self.integer_validator("height", args[2])
+            self.__height = args[2]
+        if args[3]:
+            self.coordinate_validator("x", args[3])
+            self.__x = args[3]
+        if args[4]:
+            self.coordinate_validator("y", args[4])
+            self.__y = args[4]
+        
+        
             
