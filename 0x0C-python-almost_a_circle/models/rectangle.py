@@ -19,12 +19,32 @@ class Rectangle(Base):
         self.__y = y
 
     def integer_validator(self, name, value):
+        """checks if the value of an attribute is correct
+
+        Args:
+            name (str): the name of the attribute
+            value (int): the new attribute value
+
+        Raises:
+            TypeError: when the value is not int
+            ValueError: when value is <= 0
+        """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be > 0")
 
     def coordinate_validator(self, name, value):
+        """checks if the value of an attribute is correct
+
+        Args:
+            name (str): name of the attribute
+            value (int): new attribute value
+
+        Raises:
+            TypeError: when value is not an int
+            ValueError: when value is < 0
+        """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value < 0:
