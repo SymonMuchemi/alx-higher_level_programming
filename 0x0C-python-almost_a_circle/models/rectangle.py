@@ -8,29 +8,28 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Instantiation"""
         super().__init__(id=id)
-        if not isinstance(width, int):
-            raise TypeError("width must be an integer")
-        if width <= 0:
-            raise ValueError("width must be > 0")
-        if not isinstance(height, int):
-            raise TypeError("height must be an integer")
-        if height <= 0:
-            raise ValueError("height must be > 0")
-
-        if not isinstance(x, int):
-            raise TypeError("x must be an integer")
-        if x < 0:
-            raise ValueError("x must be >= 0")
-        if not isinstance(y, int):
-            raise TypeError("y must be an integer")
-        if y < 0:
-            raise ValueError("y must be >= 0")
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.coordinate_validator("x", x)
+        self.coordinate_validator("y", y)
 
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
 
+    def integer_validator(self, name, value):
+        if not isinstance(value, int):
+            raise TypeError(f"{name} must be an integer")
+        if value <= 0:
+            raise ValueError(f"{name} must be > 0")
+
+    def coordinate_validator(self, name, value):
+        if not isinstance(value, int):
+            raise TypeError(f"{name} must be an integer")
+        if value < 0:
+            raise ValueError(f"{name} must be >= 0")
+    
     @property
     def width(self):
         """retrieve the width property
@@ -74,10 +73,7 @@ class Rectangle(Base):
         Args:
             value (int): new value
         """
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
+        self.integer_validator("width", value=value)
         self.__width = value
 
     @height.setter
@@ -87,10 +83,7 @@ class Rectangle(Base):
         Args:
             value (int): new value
         """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
+        self.integer_validator("height", value=value)
         self.__height = value
 
     @x.setter
@@ -100,10 +93,7 @@ class Rectangle(Base):
         Args:
             value (int): new value
         """
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
+        self.coordinate_validator("x", value=value)
         self.__x = value
 
     @y.setter
@@ -113,10 +103,7 @@ class Rectangle(Base):
         Args:
             value (int): new value
         """
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
+        self.coordinate_validator("y", value=value)
         self.__y = value
 
     def area(self):
@@ -136,6 +123,11 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def __str__(self):
+        """string representation of the Rectangle instance
+
+        Returns:
+            str: representation with attributes
+        """
         name = self.__class__.__name__
         id = self.id
         width = self.__width
@@ -143,3 +135,8 @@ class Rectangle(Base):
         x = self.__x
         y = self.__y
         return f"[{name}] ({id}) {x}/{y} - {width}/{height}"
+
+    def update(*args):
+        if args[0] and isinstance(args[0], int):
+            self.id = args[0]
+            

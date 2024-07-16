@@ -173,3 +173,28 @@ class TestRectagle(unittest.TestCase):
         print(TestRectagle.rect_with_id)
         self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
 
+    # def test_update(self):
+    #     TestRectagle.smallRect.update(10, 10, 10, 10, 10)
+    #     self.assertEqual(TestRectagle.smallRect.id, 10)
+    #     self.assertEqual(TestRectagle.smallRect.width(), 10)
+    #     self.assertEqual(TestRectagle.smallRect.height(), 10)
+    #     self.assertEqual(TestRectagle.smallRect.x(), 10)
+    #     self.assertEqual(TestRectagle.smallRect.y(), 10)
+
+    def test_integer_validator(self):
+        with self.assertRaises(TypeError) as context:
+            TestRectagle.smallRect.integer_validator("num1", "hello")
+        self.assertEqual(str(context.exception), "num1 must be an integer")
+
+        with self.assertRaises(ValueError) as context2:
+            TestRectagle.smallRect.integer_validator("n", -9)
+        self.assertEqual(str(context2.exception), "n must be > 0")
+
+    def test_coordinate_validator(self):
+        with self.assertRaises(TypeError) as context:
+            TestRectagle.smallRect.coordinate_validator("num1", "hello")
+        self.assertEqual(str(context.exception), "num1 must be an integer")
+
+        with self.assertRaises(ValueError) as context2:
+            TestRectagle.smallRect.coordinate_validator("n", -9)
+        self.assertEqual(str(context2.exception), "n must be >= 0")
