@@ -89,9 +89,9 @@ class TestRectagle(unittest.TestCase):
     def test_x_raises_value_error(self):
         with self.assertRaises(ValueError) as cntxtNegative:
             TestRectagle.rect.x = -6
-        
+
         self.assertEqual(str(cntxtNegative.exception), "x must be >= 0")
-        
+
         try:
             TestRectagle.rect.x = 0
         except ValueError:
@@ -100,9 +100,9 @@ class TestRectagle(unittest.TestCase):
     def test_y_raises_value_error(self):
         with self.assertRaises(ValueError) as cntxtNegative:
             TestRectagle.rect.y = -6
-        
+
         self.assertEqual(str(cntxtNegative.exception), "y must be >= 0")
-        
+
         try:
             TestRectagle.rect.y = 0
         except ValueError:
@@ -112,35 +112,35 @@ class TestRectagle(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             erroredWidthRect = Rectangle("7", 3, 2, 25)
         self.assertEqual(str(context.exception), "width must be an integer")
-        
+
         with self.assertRaises(ValueError) as context:
             erroredWidthRect = Rectangle(0, 3, 2, 25)
         self.assertEqual(str(context.exception), "width must be > 0")
-        
+
         with self.assertRaises(TypeError) as context:
             erroredWidthRect = Rectangle(2, "7", 2, 25)
         self.assertEqual(str(context.exception), "height must be an integer")
-        
+
         with self.assertRaises(ValueError) as context:
             erroredWidthRect = Rectangle(2, -5, 2, 25)
         self.assertEqual(str(context.exception), "height must be > 0")
-    
+
         with self.assertRaises(ValueError) as context:
             erroredWidthRect = Rectangle(7, 6, -5, 25)
         self.assertEqual(str(context.exception), "x must be >= 0")
-        
+
         with self.assertRaises(TypeError) as context:
             erroredWidthRect = Rectangle(7, 3, "2", 25)
         self.assertEqual(str(context.exception), "x must be an integer")
-        
+
         with self.assertRaises(ValueError) as context:
             erroredWidthRect = Rectangle(10, 3, 2, -25)
         self.assertEqual(str(context.exception), "y must be >= 0")
-        
+
         with self.assertRaises(TypeError) as context:
             erroredWidthRect = Rectangle(2, 7, 2, "25")
         self.assertEqual(str(context.exception), "y must be an integer")
-    
+
         with self.assertRaises(ValueError) as context:
             erroredWidthRect = Rectangle(7, 6, 2, -25)
         self.assertEqual(str(context.exception), "y must be >= 0")
