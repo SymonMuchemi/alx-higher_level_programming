@@ -157,12 +157,15 @@ class Rectangle(Base):
         return f"[{name}] ({id}) {x}/{y} - {width}/{height}"
 
     def update(self, *args, **kwargs):
-        """assigns an argument to each attribute:
-            1st argument -> id attribute
-            2nd argument -> width attribute
-            3rd argument -> height attribute
-            4th argument -> x attribute
-            5th argument -> y attribute
+        """
+        Updates the attributes of the Rectangle instance.
+
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+
+        Returns:
+            None
         """
         if args:
             if len(args) > 0 and args[0] is not None:
