@@ -51,3 +51,30 @@ class Square(Rectangle):
 
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        if args:
+            if len(args) > 0 and args[0] is not None:
+                self.id = args[0]
+            if len(args) > 1 and args[1] is not None:
+                super().integer_validator("size", args[1])
+                self.size = args[1]
+            if len(args) > 2 and args[2] is not None:
+                super().coordinate_validator("x", args[2])
+                self.x = args[2]
+            if len(args) > 3 and args[3] is not None:
+                super().coordinate_validator("y", args[3])
+                self.y = args[3]
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "size":
+                    super().integer_validator("height", value)
+                    self.size = value
+                elif key == "x":
+                    super().coordinate_validator("x", value)
+                    self.x = value
+                elif key == "y":
+                    super().coordinate_validator("y", value)
+                    self.y = value
