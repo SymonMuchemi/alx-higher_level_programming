@@ -29,3 +29,25 @@ class Square(Rectangle):
         x = self.x
         y = self.y
         return f"[{name}] ({id}) {x}/{y} - {width}"
+
+    @property
+    def size(self):
+        """returns the size of the square
+
+        Returns:
+            int: the width
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """setter for the size attribute
+
+        Args:
+            value (int): new integer value
+        """
+        super().integer_validator("width", value=value)
+        super().integer_validator("heigh", value=value)
+
+        self.width = value
+        self.height = value
