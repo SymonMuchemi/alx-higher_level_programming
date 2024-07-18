@@ -24,3 +24,10 @@ class TestSquare(TestCase):
         self.assertEqual(self.square1.width, self.square1.height)
         self.assertEqual(self.square1.x, 8)
         self.assertEqual(self.square1.y, 8)
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_str(self, mock_stdout):
+        sq_id = self.square1.id
+        expected_str = f"[Square] ({sq_id}) 8/8 - 10"
+        print(self.square1)
+        self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
