@@ -16,9 +16,16 @@ class TestRectangle(unittest.TestCase):
         cls.rect_with_id = Rectangle(21, 12, 5, 4, 89)
         cls.smallRect = Rectangle(2, 3, 2, 5)
         cls.newRect = Rectangle(9, 9, 9, 9, 8)
+        cls.noXRect = Rectangle(10, 10)
+        cls.noYRect = Rectangle(10, 10, 9)
 
     def test_rectangle_parent_class(self):
         self.assertIsInstance(self.rect, Base)
+
+    def test_default_attribute_value(self):
+        self.assertEqual(self.noXRect.x, 0)
+        self.assertEqual(self.noXRect.y, 0)
+        self.assertEqual(self.noYRect.y, 0)
 
     def test_rectangle_attributes(self):
         self.assertFalse(hasattr(self.rect, '__width'))
