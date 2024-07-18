@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """tests for the square model"""
 from unittest import TestCase
 from unittest.mock import patch
