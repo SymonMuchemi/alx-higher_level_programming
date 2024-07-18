@@ -22,10 +22,13 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_parent_class(self):
         self.assertIsInstance(self.rect, Base)
 
-    def test_default_attribute_value(self):
-        self.assertEqual(self.noXRect.x, 0)
-        self.assertEqual(self.noXRect.y, 0)
-        self.assertEqual(self.noYRect.y, 0)
+    def test_rectangle_instantiation(self):
+        rect = Rectangle(1, 2)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+        self.assertIsNotNone(rect.id)
 
     def test_rectangle_attributes(self):
         self.assertFalse(hasattr(self.rect, '__width'))
