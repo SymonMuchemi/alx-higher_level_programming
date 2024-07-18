@@ -31,6 +31,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.xyRect.y, 0)
         self.assertIsNotNone(self.xyRect.id)
 
+    def test_rectangle_height_zero(self):
+        with self.assertRaises(ValueError) as context:
+            Rectangle(1, 0)
+        self.assertEqual(str(context.exception), "height must be > 0")
+
+    def test_rectangle_width_zero(self):
+        with self.assertRaises(ValueError) as context:
+            Rectangle(0, 2)
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+
     def test_rectangle_attributes(self):
         self.assertFalse(hasattr(self.rect, '__width'))
         self.assertFalse(hasattr(self.rect, '__height'))
