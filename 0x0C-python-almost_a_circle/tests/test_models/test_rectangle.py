@@ -18,17 +18,18 @@ class TestRectangle(unittest.TestCase):
         cls.newRect = Rectangle(9, 9, 9, 9, 8)
         cls.noXRect = Rectangle(10, 10)
         cls.noYRect = Rectangle(10, 10, 9)
+        cls.xyRect = Rectangle(1, 2)
+
 
     def test_rectangle_parent_class(self):
         self.assertIsInstance(self.rect, Base)
 
     def test_rectangle_instantiation(self):
-        rect = Rectangle(1, 2)
-        self.assertEqual(rect.width, 1)
-        self.assertEqual(rect.height, 2)
-        self.assertEqual(rect.x, 0)
-        self.assertEqual(rect.y, 0)
-        self.assertIsNotNone(rect.id)
+        self.assertEqual(self.xyRect.width, 1)
+        self.assertEqual(self.xyRect.height, 2)
+        self.assertEqual(self.xyRect.x, 0)
+        self.assertEqual(self.xyRect.y, 0)
+        self.assertIsNotNone(self.xyRect.id)
 
     def test_rectangle_attributes(self):
         self.assertFalse(hasattr(self.rect, '__width'))
@@ -166,6 +167,13 @@ class TestRectangle(unittest.TestCase):
         expected_str = "[Rectangle] (89) 5/4 - 21/12"
         print(self.rect_with_id)
         self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
+    
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_str_rect_with_no_x_y(self, mock_stdout):
+        xyRect_id = self.xyRect.id
+        xyRect_str = f"[Rectangle] ({xyRect_id}) 0/0 - 1/2"
+        print(self.xyRect)
+        self.assertEqual(mock_stdout.getvalue().strip(), xyRect_str)
 
     def test_integer_validator(self):
         with self.assertRaises(TypeError) as context:
