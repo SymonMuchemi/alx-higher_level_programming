@@ -53,6 +53,16 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """
+        Updates the attributes of the square instance.
+
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+
+        Returns:
+            None
+        """
         if args:
             if len(args) > 0 and args[0] is not None:
                 self.id = args[0]
