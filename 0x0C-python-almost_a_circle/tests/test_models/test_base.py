@@ -37,9 +37,9 @@ class TestBase(unittest.TestCase):
     def test_to_json_string_return_type(self):
         test_dict = {'One': 1, "two": 2}
         test_dict2 = {'One': 1, "two": 2, "Three": 3}
-        
+
         lst_dict = [test_dict, test_dict2]
-        
+
         self.assertIsInstance(self.base1.to_json_string(lst_dict), str)
 
     def test_to_json_string_output(self):
@@ -50,14 +50,14 @@ class TestBase(unittest.TestCase):
     def test_to_json_string_on_none(self):
         self.assertEqual(self.base1.to_json_string(None), "[]")
 
-    def to_json_string_on_none_dicts(self,list_dictionaries):
+    def to_json_string_on_none_dicts(self, list_dictionaries):
         none_dict = "not a dictionary"
         dict1 = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
         mixed_dict = [dict1, none_dict]
-        
+
         self.assertEqual(self.base1.to_json_string([none_dict]), "[]")
         self.assertEqual(self.base1.to_json_string(mixed_dict), "[]")
-        
-        
+
+
 if __name__ == "__main__":
     unittest.main()
