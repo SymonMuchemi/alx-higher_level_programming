@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """The parent model"""
+import json
 
 
 class Base():
@@ -12,3 +13,15 @@ class Base():
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        lst_str = []
+        if list_dictionaries == None:
+            return "[]"
+        if len(list_dictionaries) == 0:
+            return "[]"
+        for dictionary in list_dictionaries:
+            if not isinstance(dictionary, dict):
+                return "[]"
+        return json.dumps(list_dictionaries)
