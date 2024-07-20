@@ -88,3 +88,16 @@ class Square(Rectangle):
                 elif key == "y":
                     super().coordinate_validator("y", value)
                     self.y = value
+
+    def to_dictionary(self):
+        """returns dictionary representation of the square instance
+
+        Returns:
+            dict: instance attributes and values
+        """
+        return {
+            'id': self.id,
+            'x': self.x,
+            'y': self.y,
+            'size': self.width
+        }

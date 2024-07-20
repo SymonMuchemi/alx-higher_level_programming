@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """tests for the square model"""
-from unittest import TestCase
+import unittest
 from unittest.mock import patch
 from io import StringIO
 from models.square import Square
 
 
-class TestSquare(TestCase):
+class TestSquare(unittest.TestCase):
     """Test cases for the Square model"""
 
     def setUp(cls):
@@ -37,3 +37,14 @@ class TestSquare(TestCase):
         self.square1.size = 24
         self.assertEqual(self.square1.width, 24)
         self.assertEqual(self.square1.height, 24)
+
+    def test_to_dictionary_return_type(self):
+        self.assertIsInstance(self.square1.to_dictionary(), dict)
+
+    def test_to_dictionary_keys(self):
+        keys = ['id', 'size', 'x', 'y']
+        for key in keys:
+            self.assertIn(key, self.square1.to_dictionary().keys())
+
+if __name__ == "__main__":
+    unittest.main()
