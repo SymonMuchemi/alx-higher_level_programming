@@ -199,7 +199,7 @@ class Rectangle(Base):
                     self.coordinate_validator("y", value)
                     self.__y = value
 
-    def to_dict(self):
+    def to_dictionary(self):
         """returns dictionary representation of the rectangle instance
 
         Returns:

@@ -239,15 +239,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.newRect.x, 32)
         self.assertEqual(self.newRect.y, 32)
 
-    def test_to_dict_return_type(self):
-        self.assertIsInstance(self.rect.to_dict(), dict)
+    def test_to_dictionary_return_type(self):
+        self.assertIsInstance(self.rect.to_dictionary(), dict)
 
-    def test_to_dict_keys(self):
+    def test_to_dictionary_keys(self):
         keys = ['x', 'y', 'width', 'height', 'id']
 
         for key in keys:
-            self.assertIn(key, self.rect.to_dict().keys())
-        self.assertIsInstance(self.rect.to_dict(), dict)
+            self.assertIn(key, self.rect.to_dictionary().keys())
+        self.assertIsInstance(self.rect.to_dictionary(), dict)
 
 if __name__ == "__main__":
     unittest.main()
