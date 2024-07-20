@@ -37,4 +37,19 @@ class Base():
 
     @classmethod
     def save_to_file(cls, list_objs):
-        pass
+        """writes the JSON string representation of list_objs to a file
+
+        Args:
+            list_objs (list): list of child object instances
+        """
+        filename = cls.__name__ + '.json'
+
+        if list_objs is None:
+            list_objs = []
+
+        list_of_dicts = [obj.to_dictionary() for obj in list_objs]
+
+        json_string = cls.to_json_string(list_of_dicts)
+
+        with open(filename, 'w') as file:
+            file.write(json_string)

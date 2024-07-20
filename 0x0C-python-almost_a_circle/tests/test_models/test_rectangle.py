@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """tests for the Rectangle"""
 import unittest
+import os
 from unittest.mock import patch
 from io import StringIO
 from models.rectangle import Rectangle
@@ -20,6 +21,10 @@ class TestRectangle(unittest.TestCase):
         cls.noYRect = Rectangle(10, 10, 9)
         cls.xyRect = Rectangle(1, 2)
 
+    @classmethod
+    def tearDown(cls):
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
 
     def test_rectangle_parent_class(self):
         self.assertIsInstance(self.rect, Base)
@@ -40,7 +45,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             Rectangle(0, 2)
         self.assertEqual(str(context.exception), "width must be > 0")
-
 
     def test_rectangle_attributes(self):
         self.assertFalse(hasattr(self.rect, '__width'))
@@ -248,6 +252,17 @@ class TestRectangle(unittest.TestCase):
         for key in keys:
             self.assertIn(key, self.rect.to_dictionary().keys())
         self.assertIsInstance(self.rect.to_dictionary(), dict)
+
+    def test_save_to_file(self):
+        Rectangle.save_to_file([self.rect, self.rect_with_id, self.newRect])
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json") as file:
+            content = file.read()
+
+        self.assertNotEqual(content, "[]")
+
 
 if __name__ == "__main__":
     unittest.main()
