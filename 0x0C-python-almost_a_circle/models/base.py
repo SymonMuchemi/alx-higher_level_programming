@@ -16,6 +16,15 @@ class Base():
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """
+        Convert a list of dictionaries to a JSON string representation.
+
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+
+        Returns:
+            str: A JSON string representation of the list of dictionaries.
+        """
         lst_str = []
         if list_dictionaries is None:
             return "[]"
@@ -25,3 +34,7 @@ class Base():
             if not isinstance(dictionary, dict):
                 return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        pass
