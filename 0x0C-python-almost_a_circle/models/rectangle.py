@@ -198,3 +198,17 @@ class Rectangle(Base):
                 elif key == "y":
                     self.coordinate_validator("y", value)
                     self.__y = value
+
+    def to_dict(self):
+        """returns dictionary representation of the rectangle instance
+
+        Returns:
+            dict: instance attributes and values
+        """
+        return {
+            'x': self.__x,
+            'y': self.__y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
+        }

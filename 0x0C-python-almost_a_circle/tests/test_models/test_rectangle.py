@@ -178,7 +178,7 @@ class TestRectangle(unittest.TestCase):
         expected_str = "[Rectangle] (89) 5/4 - 21/12"
         print(self.rect_with_id)
         self.assertEqual(mock_stdout.getvalue().strip(), expected_str)
-    
+
     @patch('sys.stdout', new_callable=StringIO)
     def test_str_rect_with_no_x_y(self, mock_stdout):
         xyRect_id = self.xyRect.id
@@ -231,7 +231,7 @@ class TestRectangle(unittest.TestCase):
         self.assertNotEqual(self.newRect.height, 32)
         self.assertNotEqual(self.newRect.x, 32)
         self.assertNotEqual(self.newRect.y, 32)
-        
+
         self.newRect.update(id=32, width=32, x=32, y=32, height=32)
         self.assertEqual(self.newRect.id, 32)
         self.assertEqual(self.newRect.height, 32)
@@ -239,6 +239,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.newRect.x, 32)
         self.assertEqual(self.newRect.y, 32)
 
+    def test_to_dict_return_type(self):
+        self.assertIsInstance(self.rect.to_dict(), dict)
+
+    def test_to_dict_keys(self):
+        keys = ['x', 'y', 'width', 'height', 'id']
+
+        for key in keys:
+            self.assertIn(key, self.rect.to_dict().keys())
+        self.assertIsInstance(self.rect.to_dict(), dict)
 
 if __name__ == "__main__":
     unittest.main()
