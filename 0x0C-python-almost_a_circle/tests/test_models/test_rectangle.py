@@ -178,6 +178,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(mock_stdout.getvalue(), expected_str)
 
     @patch('sys.stdout', new_callable=StringIO)
+    def test_display_without_x_y(self, mock_stdout):
+        r = Rectangle(4, 3)
+        expected_output = "####\n####\n####\n"
+
+        r.display()
+        self.assertEqual(mock_stdout.getvalue(), expected_output)
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_display_without_y(self, mock_stdout):
+        r = Rectangle(4, 3, 0)
+        expected_output = "####\n####\n####\n"
+
+        r.display()
+        self.assertEqual(mock_stdout.getvalue(), expected_output)
+
+    @patch('sys.stdout', new_callable=StringIO)
     def test_str(self, mock_stdout):
         expected_str = "[Rectangle] (89) 5/4 - 21/12"
         print(self.rect_with_id)
@@ -286,8 +302,9 @@ class TestRectangle(unittest.TestCase):
     def test_load_from_file_returns_empty_list(self):
         if os.path.exists("Rectangle.json"):
             os.remove("Rectangle.json")
-        
+
         self.assertEqual(Rectangle.load_from_file(), [])
+
 
 if __name__ == "__main__":
     unittest.main()
