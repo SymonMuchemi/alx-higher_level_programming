@@ -279,6 +279,24 @@ class TestRectangle(unittest.TestCase):
 
         self.assertNotEqual(content, "[]")
 
+    def test_save_to_file_with_none(self):
+        Rectangle.save_to_file(None)
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json") as file:
+            content = file.read()
+        self.assertEqual(content, "[]")
+
+    def test_save_to_file_with_empty_list(self):
+        Rectangle.save_to_file([])
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json") as file:
+            content = file.read()
+        self.assertEqual(content, "[]")
+
     def test_create(self):
         new_dict = {'id': 404, 'size': 3, 'x': 4, 'y': 5}
         new = Rectangle.create(**new_dict)
