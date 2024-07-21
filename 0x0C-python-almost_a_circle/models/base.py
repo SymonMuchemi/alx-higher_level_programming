@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """The parent model"""
-import json
 import os
+import csv
+import json
 
 
 class Base():
@@ -106,5 +107,51 @@ class Base():
 
             for obj in list_of_objs:
                 list_of_instances.append(cls.create(**obj))
+
+        return list_of_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves objects to a csv file
+
+        Args:
+            list_objs (list): list of objects
+        """
+        filename = cls.__name__ + ".csv"
+        field_names = []
+        if list_objs is None:
+            list_objs = []
+
+        list_of_dicts = [obj.to_dictionary() for obj in list_objs]
+
+        if cls.__name__ == "Square":
+            field_names = ['id', 'size', 'x', 'y']
+        if cls.__name__ == "Rectangle":
+            field_names = ['id', 'width', 'height', 'x', 'y']
+
+        with open(filename, 'w') as file:
+            writer = csv.DictWriter(file, fieldnames=field_names)
+
+            writer.writeheader()
+
+            for obj in list_of_dicts:
+                writer.writerow(obj)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        list_of_instances = []
+
+        if cls.__name__ == "Square" or cls.__name__ == "Rectangle":
+            filename = f"{cls.__name__}.csv"
+
+            if not os.path.exists(filename):
+                return []
+
+            with open(filename, 'r') as file:
+                reader = csv.DictReader(file)
+
+                for row in reader:
+                    dictionary = {key: int(val) for key, val in row.items()}
+                    list_of_instances.append(cls.create(**dictionary))
 
         return list_of_instances
