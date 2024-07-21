@@ -64,6 +64,19 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(new, Square)
         self.assertTrue(hasattr(new, 'id'))
 
+    def test_load_from_file(self):
+        r1 = Square(10)
+        r2 = Square(2, 4, 2)
+        list_Squares_input = [r1, r2]
+
+        Square.save_to_file(list_Squares_input)
+
+        output = Square.load_from_file()
+
+        self.assertIsInstance(output, list)
+        self.assertIsInstance(output[0], Square)
+        self.assertIsInstance(output[1], Square)
+
 
 if __name__ == "__main__":
     unittest.main()

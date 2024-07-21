@@ -73,6 +73,11 @@ class Base():
 
     @classmethod
     def create(cls, **dictionary):
+        """creates an instance from a dictionary
+
+        Returns:
+            dict: dictionary of attributes
+        """
         if cls.__name__ == "Square":
             dummy = cls(1)
         if cls.__name__ == "Rectangle":
@@ -81,3 +86,22 @@ class Base():
         dummy.update(**dictionary)
 
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """loads json from file
+
+        Returns:
+            list: list of deserialized cls instances
+        """
+        list_of_instances = []
+
+        if cls.__name__ == "Square" or "Rectangle":
+            with open(f"{cls.__name__}.json", 'r') as file:
+                json_strings = file.read()
+            list_of_objs = cls.from_json_string(json_strings)
+
+            for obj in list_of_objs:
+                list_of_instances.append(cls.create(**obj))
+
+        return list_of_instances

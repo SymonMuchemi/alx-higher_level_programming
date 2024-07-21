@@ -270,6 +270,19 @@ class TestRectangle(unittest.TestCase):
         self.assertIsInstance(new, Rectangle)
         self.assertTrue(hasattr(new, 'id'))
 
+    def test_load_from_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        output = Rectangle.load_from_file()
+
+        self.assertIsInstance(output, list)
+        self.assertIsInstance(output[0], Rectangle)
+        self.assertIsInstance(output[1], Rectangle)
+
 
 if __name__ == "__main__":
     unittest.main()
