@@ -21,6 +21,14 @@ class TestSquare(unittest.TestCase):
         if os.path.exists("Square.json"):
             os.remove("Square.json")
 
+    def test_square_instantiation(self):
+        sq = Square(1, 2, 3, 4)
+
+        self.assertEqual(sq.size, 1)
+        self.assertEqual(sq.x, 2)
+        self.assertEqual(sq.y, 3)
+        self.assertEqual(sq.id, 4)
+
     def test_square_instantiation_attr(self):
         self.assertIsNotNone(self.square1.id)
         self.assertIsNotNone(self.square1.width)
@@ -30,6 +38,41 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.square1.width, self.square1.height)
         self.assertEqual(self.square1.x, 8)
         self.assertEqual(self.square1.y, 8)
+
+    def test_instatiation_with_size_as_zero(self):
+        with self.assertRaises(ValueError) as context:
+            sq = Square(0)
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+    def test_instatiation_with_size_invalid(self):
+        with self.assertRaises(TypeError) as context:
+            sq = Square("1")
+        self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_instatiation_with_size_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            sq = Square(-1)
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+    def test_instatiation_with_x_invalid(self):
+        with self.assertRaises(TypeError) as context:
+            sq = Square(25, "1")
+        self.assertEqual(str(context.exception), "x must be an integer")
+
+    def test_instatiation_with_x_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            sq = Square(25, -2)
+        self.assertEqual(str(context.exception), "x must be >= 0")
+
+    def test_instatiation_with_y_invalid(self):
+        with self.assertRaises(TypeError) as context:
+            sq = Square(2, 5, "1")
+        self.assertEqual(str(context.exception), "y must be an integer")
+
+    def test_instatiation_with_y_value_error(self):
+        with self.assertRaises(ValueError) as context:
+            sq = Square(2, 5, -9)
+        self.assertEqual(str(context.exception), "y must be >= 0")
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_str(self, mock_stdout):
