@@ -77,6 +77,12 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(output[0], Square)
         self.assertIsInstance(output[1], Square)
 
+    def test_load_from_file_returns_empty_list(self):
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
+
+        self.assertEqual(Square.load_from_file(), [])
+
 
 if __name__ == "__main__":
     unittest.main()

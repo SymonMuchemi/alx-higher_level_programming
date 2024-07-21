@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """The parent model"""
 import json
+import os
 
 
 class Base():
@@ -97,6 +98,8 @@ class Base():
         list_of_instances = []
 
         if cls.__name__ == "Square" or "Rectangle":
+            if not os.path.exists(f"{cls.__name__}.json"):
+                return []
             with open(f"{cls.__name__}.json", 'r') as file:
                 json_strings = file.read()
             list_of_objs = cls.from_json_string(json_strings)

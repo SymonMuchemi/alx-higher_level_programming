@@ -283,6 +283,11 @@ class TestRectangle(unittest.TestCase):
         self.assertIsInstance(output[0], Rectangle)
         self.assertIsInstance(output[1], Rectangle)
 
+    def test_load_from_file_returns_empty_list(self):
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+        
+        self.assertEqual(Rectangle.load_from_file(), [])
 
 if __name__ == "__main__":
     unittest.main()
