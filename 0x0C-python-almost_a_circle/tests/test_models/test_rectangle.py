@@ -263,6 +263,13 @@ class TestRectangle(unittest.TestCase):
 
         self.assertNotEqual(content, "[]")
 
+    def test_create(self):
+        new_dict = {'id': 404, 'size': 3, 'x': 4, 'y': 5}
+        new = Rectangle.create(**new_dict)
+
+        self.assertIsInstance(new, Rectangle)
+        self.assertTrue(hasattr(new, 'id'))
+
 
 if __name__ == "__main__":
     unittest.main()

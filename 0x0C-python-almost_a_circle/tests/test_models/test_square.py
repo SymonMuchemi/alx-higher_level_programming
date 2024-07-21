@@ -57,6 +57,13 @@ class TestSquare(unittest.TestCase):
         self.assertTrue(os.path.exists("Square.json"))
         self.assertNotEqual(os.path.getsize("Square.json"), 0)
 
+    def test_create(self):
+        new_dict = {'id': 404, 'size': 3, 'x': 4, 'y': 5}
+        new = Square.create(**new_dict)
+
+        self.assertIsInstance(new, Square)
+        self.assertTrue(hasattr(new, 'id'))
+
 
 if __name__ == "__main__":
     unittest.main()
