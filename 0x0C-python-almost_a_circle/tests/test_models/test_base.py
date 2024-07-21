@@ -20,6 +20,7 @@ class TestBase(unittest.TestCase):
         cls.base2 = Base()
         cls.base_with_id = Base(89)
         cls.dict1 = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
+        cls.dict2 = {'x': 3, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
         cls.filename = "Base.json"
 
     def tearDown(self):
@@ -77,6 +78,16 @@ class TestBase(unittest.TestCase):
         with open("Base.json") as file:
             content = file.read()
         self.assertNotEqual(content, "[]")
+
+    def test_from_json_string(self):
+        mixed_dict = [self.dict1, self.dict2]
+
+        json_str = self.base1.to_json_string(mixed_dict)
+        list_of_json_objs = self.base1.from_json_string(json_string=json_str)
+
+        self.assertIsInstance(list_of_json_objs, list)
+        self.assertEqual(list_of_json_objs[0], self.dict1)
+        self.assertEqual(list_of_json_objs[1], self.dict2)
 
 
 if __name__ == "__main__":

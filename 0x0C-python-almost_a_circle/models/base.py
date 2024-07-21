@@ -53,3 +53,20 @@ class Base():
 
         with open(filename, 'w') as file:
             file.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Deserialize a JSON string representation into a Python object.
+
+        Args:
+            json_string (str): The JSON string to be deserialized.
+
+        Returns:
+            list: The deserialized Python object.
+
+        """
+        if json_string is None:
+            return []
+
+        return json.loads(json_string)
