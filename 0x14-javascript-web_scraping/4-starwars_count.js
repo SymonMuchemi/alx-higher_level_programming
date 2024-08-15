@@ -1,6 +1,5 @@
 #!/usr/bin/node
 // get the number of movies where a character is present
-const { count } = require('console');
 const request = require('request');
 
 const url = process.argv[2];
