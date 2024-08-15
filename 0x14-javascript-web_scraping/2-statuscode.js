@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/node
 // gets the status code of a get request
 const request = require('request');
 
