@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 // uses starwars api to get film title
-const { copyFileSync } = require('fs');
-const { title } = require('process');
 const request = require('request');
 const url = 'https://swapi-api.hbtn.io/api/films/';
 const id = process.argv[2];
