@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/node
 // uses starwars api to get film title
 const request = require('request');
 const url = 'https://swapi-api.hbtn.io/api/films/';
